@@ -9,5 +9,5 @@ package com.smart.home.model;
  * @author INTEL
  */
 public class Cliente {
-    
+    private String Nombre;
 }

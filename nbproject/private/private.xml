@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/model/Usuario.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/model/Producto.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/model/LogActividad.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/ProductoDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/LogActividadDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/LoginForm.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/ClienteForm.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/ProductoForm.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/DashboardForm.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/util/DBConnection.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/util/Validaciones.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/util/ExportPDF.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/util/ExportExcel.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/main/Main.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/model/Cliente.java</file>
+        </group>
+    </open-files>
+</project-private>
