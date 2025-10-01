@@ -60,9 +60,9 @@ public class ProductoForm extends javax.swing.JFrame {
         setTitle("Sistema de Gestión Integral");
         setBackground(new java.awt.Color(0, 0, 255));
         setFocusableWindowState(false);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblInicio.setText("INICIO");
         lblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,7 +70,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 lblInicioMouseClicked(evt);
             }
         });
-        jPanel1.add(lblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 40, 30));
 
         lblProyecto.setText("PROYECTO");
         lblProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,7 +77,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 lblProyectoMouseClicked(evt);
             }
         });
-        jPanel1.add(lblProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 120, -1));
 
         lblInventario.setText("INVENTARIO");
         lblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,7 +84,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 lblInventarioMouseClicked(evt);
             }
         });
-        jPanel1.add(lblInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 130, -1));
 
         lblRegistroCliente.setText("REGISTRO DE CLIENTE");
         lblRegistroCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,7 +91,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 lblRegistroClienteMouseClicked(evt);
             }
         });
-        jPanel1.add(lblRegistroCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 160, 30));
 
         lblGestionEmpleado.setText("GESTION DE EMPLEADO");
         lblGestionEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,7 +98,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 lblGestionEmpleadoMouseClicked(evt);
             }
         });
-        jPanel1.add(lblGestionEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 160, -1));
 
         lblControlFinanciero.setText("CONTROL FINANCIERO");
         lblControlFinanciero.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,7 +105,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 lblControlFinancieroMouseClicked(evt);
             }
         });
-        jPanel1.add(lblControlFinanciero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 160, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -178,8 +172,9 @@ public class ProductoForm extends javax.swing.JFrame {
             .addComponent(txtCategoria)
             .addComponent(txtPrecio)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btnGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir))
@@ -248,15 +243,12 @@ public class ProductoForm extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 610, 450));
-
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house.png"))); // NOI18N
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 30, 160, 60));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proyecto.png"))); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -264,7 +256,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 jLabel13MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 110, 160, 60));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario.png"))); // NOI18N
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -272,7 +263,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 jLabel14MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 190, 160, 60));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clientes.png"))); // NOI18N
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -280,7 +270,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 270, 160, 60));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -288,7 +277,6 @@ public class ProductoForm extends javax.swing.JFrame {
                 jLabel16MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 340, 160, 60));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/finanzas.png"))); // NOI18N
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -296,20 +284,81 @@ public class ProductoForm extends javax.swing.JFrame {
                 jLabel17MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 410, 160, 60));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGestionEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblControlFinanciero, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(lblInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(50, 50, 50)
+                            .addComponent(lblProyecto)
+                            .addGap(64, 64, 64)
+                            .addComponent(lblInventario)
+                            .addGap(64, 64, 64)
+                            .addComponent(lblRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(40, 40, 40)
+                            .addComponent(lblGestionEmpleado)
+                            .addGap(54, 54, 54)
+                            .addComponent(lblControlFinanciero))))
+                .addGap(20, 20, 20))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(880, 488));
+        setSize(new java.awt.Dimension(1118, 488));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
