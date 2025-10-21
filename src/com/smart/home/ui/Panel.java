@@ -71,6 +71,11 @@ public class Panel extends javax.swing.JFrame {
         btnIni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIni.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnIni.setIconTextGap(1);
+        btnIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniActionPerformed(evt);
+            }
+        });
 
         btnPro.setBackground(new java.awt.Color(0, 0, 255));
         btnPro.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -81,6 +86,11 @@ public class Panel extends javax.swing.JFrame {
         btnPro.setBorderPainted(false);
         btnPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPro.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProActionPerformed(evt);
+            }
+        });
 
         brnIn.setBackground(new java.awt.Color(0, 0, 255));
         brnIn.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -91,6 +101,11 @@ public class Panel extends javax.swing.JFrame {
         brnIn.setBorderPainted(false);
         brnIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         brnIn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        brnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brnInActionPerformed(evt);
+            }
+        });
 
         btnCli.setBackground(new java.awt.Color(0, 0, 255));
         btnCli.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -101,6 +116,11 @@ public class Panel extends javax.swing.JFrame {
         btnCli.setBorderPainted(false);
         btnCli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCli.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCliActionPerformed(evt);
+            }
+        });
 
         btnEm.setBackground(new java.awt.Color(0, 0, 255));
         btnEm.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -111,6 +131,11 @@ public class Panel extends javax.swing.JFrame {
         btnEm.setBorderPainted(false);
         btnEm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEm.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmActionPerformed(evt);
+            }
+        });
 
         btnFi.setBackground(new java.awt.Color(0, 0, 255));
         btnFi.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -121,6 +146,11 @@ public class Panel extends javax.swing.JFrame {
         btnFi.setBorderPainted(false);
         btnFi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFi.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnFi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiActionPerformed(evt);
+            }
+        });
 
         btnAg.setBackground(new java.awt.Color(0, 0, 255));
         btnAg.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -131,6 +161,11 @@ public class Panel extends javax.swing.JFrame {
         btnAg.setBorderPainted(false);
         btnAg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAg.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnAg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgActionPerformed(evt);
+            }
+        });
 
         btnRep.setBackground(new java.awt.Color(0, 0, 255));
         btnRep.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -141,6 +176,11 @@ public class Panel extends javax.swing.JFrame {
         btnRep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRep.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnRep.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnRep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRepActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
@@ -150,10 +190,10 @@ public class Panel extends javax.swing.JFrame {
             .addComponent(btnPro)
             .addComponent(brnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnCli, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnEm, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnFi, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnRep, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnAg, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnEm, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnFi, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,6 +258,38 @@ public class Panel extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniActionPerformed
+       ShowJPanel(new Inicio());
+    }//GEN-LAST:event_btnIniActionPerformed
+
+    private void btnProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProActionPerformed
+        ShowJPanel(new Proyectos());
+    }//GEN-LAST:event_btnProActionPerformed
+
+    private void brnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnInActionPerformed
+        ShowJPanel(new Tario());
+    }//GEN-LAST:event_brnInActionPerformed
+
+    private void btnCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCliActionPerformed
+        ShowJPanel(new Ente());
+    }//GEN-LAST:event_btnCliActionPerformed
+
+    private void btnEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmActionPerformed
+        ShowJPanel(new Empleados());
+    }//GEN-LAST:event_btnEmActionPerformed
+
+    private void btnFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiActionPerformed
+        ShowJPanel(new Financiero());
+    }//GEN-LAST:event_btnFiActionPerformed
+
+    private void btnRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepActionPerformed
+        ShowJPanel(new Reportes());
+    }//GEN-LAST:event_btnRepActionPerformed
+
+    private void btnAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgActionPerformed
+        ShowJPanel(new Agregar());
+    }//GEN-LAST:event_btnAgActionPerformed
 
     /**
      * @param args the command line arguments

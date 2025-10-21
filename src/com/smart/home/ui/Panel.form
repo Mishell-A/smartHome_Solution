@@ -70,10 +70,10 @@
                   <Component id="btnPro" min="-2" max="-2" attributes="0"/>
                   <Component id="brnIn" min="-2" pref="330" max="-2" attributes="0"/>
                   <Component id="btnCli" min="-2" pref="324" max="-2" attributes="0"/>
-                  <Component id="btnEm" min="-2" pref="336" max="-2" attributes="0"/>
-                  <Component id="btnFi" min="-2" pref="336" max="-2" attributes="0"/>
                   <Component id="btnRep" min="-2" pref="270" max="-2" attributes="0"/>
                   <Component id="btnAg" min="-2" pref="380" max="-2" attributes="0"/>
+                  <Component id="btnEm" alignment="0" min="-2" pref="336" max="-2" attributes="0"/>
+                  <Component id="btnFi" alignment="0" min="-2" pref="363" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -129,6 +129,9 @@
                 <Property name="horizontalTextPosition" type="int" value="2"/>
                 <Property name="iconTextGap" type="int" value="1"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnPro">
               <Properties>
@@ -154,6 +157,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="brnIn">
               <Properties>
@@ -179,6 +185,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brnInActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCli">
               <Properties>
@@ -204,6 +213,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCliActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnEm">
               <Properties>
@@ -229,6 +241,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnFi">
               <Properties>
@@ -254,6 +269,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFiActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAg">
               <Properties>
@@ -279,6 +297,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRep">
               <Properties>
@@ -302,6 +323,9 @@
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRepActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
