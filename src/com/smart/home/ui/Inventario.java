@@ -8,12 +8,12 @@ package com.smart.home.ui;
  *
  * @author USER
  */
-public class Tario extends javax.swing.JPanel {
+public class Inventario extends javax.swing.JPanel {
 
     /**
      * Creates new form Tario
      */
-    public Tario() {
+    public Inventario() {
         initComponents();
     }
 

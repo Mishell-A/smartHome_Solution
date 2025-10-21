@@ -8,12 +8,12 @@ package com.smart.home.ui;
  *
  * @author USER
  */
-public class Ente extends javax.swing.JPanel {
+public class Cliente extends javax.swing.JPanel {
 
     /**
      * Creates new form Ente
      */
-    public Ente() {
+    public Cliente() {
         initComponents();
     }
 

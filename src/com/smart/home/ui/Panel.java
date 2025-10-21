@@ -44,6 +44,7 @@ public class Panel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnFi = new javax.swing.JButton();
         back = new javax.swing.JPanel();
         menu = new javax.swing.JPanel();
         btnIni = new javax.swing.JButton();
@@ -51,91 +52,10 @@ public class Panel extends javax.swing.JFrame {
         brnIn = new javax.swing.JButton();
         btnCli = new javax.swing.JButton();
         btnEm = new javax.swing.JButton();
-        btnFi = new javax.swing.JButton();
         btnAg = new javax.swing.JButton();
         btnRep = new javax.swing.JButton();
+        btnFi1 = new javax.swing.JButton();
         conten = new javax.swing.JPanel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(950, 473));
-
-        menu.setBackground(new java.awt.Color(0, 0, 255));
-
-        btnIni.setBackground(new java.awt.Color(0, 0, 255));
-        btnIni.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
-        btnIni.setForeground(new java.awt.Color(255, 255, 255));
-        btnIni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house.png"))); // NOI18N
-        btnIni.setText("Inicio");
-        btnIni.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btnIni.setBorderPainted(false);
-        btnIni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIni.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnIni.setIconTextGap(1);
-        btnIni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniActionPerformed(evt);
-            }
-        });
-
-        btnPro.setBackground(new java.awt.Color(0, 0, 255));
-        btnPro.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
-        btnPro.setForeground(new java.awt.Color(255, 255, 255));
-        btnPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proyecto.png"))); // NOI18N
-        btnPro.setText("Proyectos");
-        btnPro.setBorder(null);
-        btnPro.setBorderPainted(false);
-        btnPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPro.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProActionPerformed(evt);
-            }
-        });
-
-        brnIn.setBackground(new java.awt.Color(0, 0, 255));
-        brnIn.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
-        brnIn.setForeground(new java.awt.Color(255, 255, 255));
-        brnIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario.png"))); // NOI18N
-        brnIn.setText("Inventario");
-        brnIn.setBorder(null);
-        brnIn.setBorderPainted(false);
-        brnIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        brnIn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        brnIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnInActionPerformed(evt);
-            }
-        });
-
-        btnCli.setBackground(new java.awt.Color(0, 0, 255));
-        btnCli.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
-        btnCli.setForeground(new java.awt.Color(255, 255, 255));
-        btnCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clientes.png"))); // NOI18N
-        btnCli.setText("Clientes");
-        btnCli.setBorder(null);
-        btnCli.setBorderPainted(false);
-        btnCli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCli.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnCli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCliActionPerformed(evt);
-            }
-        });
-
-        btnEm.setBackground(new java.awt.Color(0, 0, 255));
-        btnEm.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
-        btnEm.setForeground(new java.awt.Color(255, 255, 255));
-        btnEm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
-        btnEm.setText("Empleados");
-        btnEm.setBorder(null);
-        btnEm.setBorderPainted(false);
-        btnEm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEm.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnEm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmActionPerformed(evt);
-            }
-        });
 
         btnFi.setBackground(new java.awt.Color(0, 0, 255));
         btnFi.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -152,11 +72,98 @@ public class Panel extends javax.swing.JFrame {
             }
         });
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(950, 473));
+
+        menu.setBackground(new java.awt.Color(0, 0, 255));
+        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnIni.setBackground(new java.awt.Color(0, 0, 255));
+        btnIni.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        btnIni.setForeground(new java.awt.Color(255, 255, 255));
+        btnIni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house.png"))); // NOI18N
+        btnIni.setText("Inicio                      ");
+        btnIni.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnIni.setBorderPainted(false);
+        btnIni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIni.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnIni.setIconTextGap(1);
+        btnIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniActionPerformed(evt);
+            }
+        });
+        menu.add(btnIni, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 400, 56));
+
+        btnPro.setBackground(new java.awt.Color(0, 0, 255));
+        btnPro.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        btnPro.setForeground(new java.awt.Color(255, 255, 255));
+        btnPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proyecto.png"))); // NOI18N
+        btnPro.setText("  Proyectos              ");
+        btnPro.setBorder(null);
+        btnPro.setBorderPainted(false);
+        btnPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPro.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProActionPerformed(evt);
+            }
+        });
+        menu.add(btnPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 400, 56));
+
+        brnIn.setBackground(new java.awt.Color(0, 0, 255));
+        brnIn.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        brnIn.setForeground(new java.awt.Color(255, 255, 255));
+        brnIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario.png"))); // NOI18N
+        brnIn.setText("Inventario              ");
+        brnIn.setBorder(null);
+        brnIn.setBorderPainted(false);
+        brnIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        brnIn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        brnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brnInActionPerformed(evt);
+            }
+        });
+        menu.add(brnIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 410, 56));
+
+        btnCli.setBackground(new java.awt.Color(0, 0, 255));
+        btnCli.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        btnCli.setForeground(new java.awt.Color(255, 255, 255));
+        btnCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clientes.png"))); // NOI18N
+        btnCli.setText("Clientes                 ");
+        btnCli.setBorder(null);
+        btnCli.setBorderPainted(false);
+        btnCli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCli.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCliActionPerformed(evt);
+            }
+        });
+        menu.add(btnCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 410, 56));
+
+        btnEm.setBackground(new java.awt.Color(0, 0, 255));
+        btnEm.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        btnEm.setForeground(new java.awt.Color(255, 255, 255));
+        btnEm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
+        btnEm.setText("Empleados             ");
+        btnEm.setBorder(null);
+        btnEm.setBorderPainted(false);
+        btnEm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEm.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmActionPerformed(evt);
+            }
+        });
+        menu.add(btnEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 410, 56));
+
         btnAg.setBackground(new java.awt.Color(0, 0, 255));
         btnAg.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
         btnAg.setForeground(new java.awt.Color(255, 255, 255));
         btnAg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user.png"))); // NOI18N
-        btnAg.setText("Agregar  Usuarios");
+        btnAg.setText("Agregar  Usuario");
         btnAg.setBorder(null);
         btnAg.setBorderPainted(false);
         btnAg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,11 +173,12 @@ public class Panel extends javax.swing.JFrame {
                 btnAgActionPerformed(evt);
             }
         });
+        menu.add(btnAg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 400, 56));
 
         btnRep.setBackground(new java.awt.Color(0, 0, 255));
         btnRep.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
         btnRep.setForeground(new java.awt.Color(255, 255, 255));
-        btnRep.setText("Reportes");
+        btnRep.setText("  Reportes");
         btnRep.setBorder(null);
         btnRep.setBorderPainted(false);
         btnRep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -181,40 +189,23 @@ public class Panel extends javax.swing.JFrame {
                 btnRepActionPerformed(evt);
             }
         });
+        menu.add(btnRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 290, 56));
 
-        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
-        menu.setLayout(menuLayout);
-        menuLayout.setHorizontalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnIni, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnPro)
-            .addComponent(brnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnCli, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnRep, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnAg, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnEm, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnFi, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        menuLayout.setVerticalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuLayout.createSequentialGroup()
-                .addComponent(btnIni, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(btnPro, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(brnIn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCli, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnEm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(btnFi, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(btnRep, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(btnAg, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        btnFi1.setBackground(new java.awt.Color(0, 0, 255));
+        btnFi1.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        btnFi1.setForeground(new java.awt.Color(255, 255, 255));
+        btnFi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/finanzas.png"))); // NOI18N
+        btnFi1.setText("Finanzas                 ");
+        btnFi1.setBorder(null);
+        btnFi1.setBorderPainted(false);
+        btnFi1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFi1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnFi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFi1ActionPerformed(evt);
+            }
+        });
+        menu.add(btnFi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 410, 56));
 
         conten.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -222,26 +213,30 @@ public class Panel extends javax.swing.JFrame {
         conten.setLayout(contenLayout);
         contenLayout.setHorizontalGroup(
             contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
         contenLayout.setVerticalGroup(
             contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 495, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
         back.setLayout(backLayout);
         backLayout.setHorizontalGroup(
             backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(backLayout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(conten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(conten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         backLayout.setVerticalGroup(
             backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(conten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(backLayout.createSequentialGroup()
+                .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(conten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,7 +247,7 @@ public class Panel extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -268,20 +263,16 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProActionPerformed
 
     private void brnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnInActionPerformed
-        ShowJPanel(new Tario());
+        ShowJPanel(new Inventario());
     }//GEN-LAST:event_brnInActionPerformed
 
     private void btnCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCliActionPerformed
-        ShowJPanel(new Ente());
+        ShowJPanel(new Cliente());
     }//GEN-LAST:event_btnCliActionPerformed
 
     private void btnEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmActionPerformed
         ShowJPanel(new Empleados());
     }//GEN-LAST:event_btnEmActionPerformed
-
-    private void btnFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiActionPerformed
-        ShowJPanel(new Financiero());
-    }//GEN-LAST:event_btnFiActionPerformed
 
     private void btnRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepActionPerformed
         ShowJPanel(new Reportes());
@@ -290,6 +281,14 @@ public class Panel extends javax.swing.JFrame {
     private void btnAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgActionPerformed
         ShowJPanel(new Agregar());
     }//GEN-LAST:event_btnAgActionPerformed
+
+    private void btnFi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFi1ActionPerformed
+        ShowJPanel(new Financiero());
+    }//GEN-LAST:event_btnFi1ActionPerformed
+
+    private void btnFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,6 +332,7 @@ public class Panel extends javax.swing.JFrame {
     private javax.swing.JButton btnCli;
     private javax.swing.JButton btnEm;
     private javax.swing.JButton btnFi;
+    private javax.swing.JButton btnFi1;
     private javax.swing.JButton btnIni;
     private javax.swing.JButton btnPro;
     private javax.swing.JButton btnRep;
