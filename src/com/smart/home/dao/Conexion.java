@@ -13,7 +13,7 @@ public class Conexion {
     private static final String USER = "sa";
     private static final String PASSWORD = "123"; // tu clave real
 
-    public static Connection getConexion() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {

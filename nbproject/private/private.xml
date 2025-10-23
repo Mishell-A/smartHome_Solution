@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Inventario.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/model/Cliente.java</file>
             <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Financiero.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Inicio.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Reportes.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Proyectos.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/LogActividadDAO.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/ProductoDAO.java</file>
-            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Panel.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/Imagenes/icons8-aceptado-por-bitcoin-50.png</file>
         </group>
     </open-files>
 </project-private>
