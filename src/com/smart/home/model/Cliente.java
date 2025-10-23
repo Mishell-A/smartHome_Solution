@@ -9,5 +9,78 @@ package com.smart.home.model;
  * @author INTEL
  */
 public class Cliente {
-    private String Nombre;
+    private int id;
+    private String nombre;
+    private String apellido;
+    private String dniRuc;
+    private String telefono;
+    private String correo;
+
+    public Cliente() {
+    }
+
+    public Cliente(int id, String nombre, String apellido, String dniRuc, String telefono, String correo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dniRuc = dniRuc;
+        this.telefono = telefono;
+        this.correo = correo;
+    }
+
+    public Cliente(String nombre, String apellido, String dniRuc, String telefono, String correo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dniRuc = dniRuc;
+        this.telefono = telefono;
+        this.correo = correo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDniRuc() {
+        return dniRuc;
+    }
+
+    public void setDniRuc(String dniRuc) {
+        this.dniRuc = dniRuc;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 }

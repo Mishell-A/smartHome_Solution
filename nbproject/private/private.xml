@@ -8,6 +8,10 @@
             <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Inicio.java</file>
             <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Reportes.java</file>
             <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/ui/Proyectos.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/LogActividadDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/ProductoDAO.java</file>
+            <file>file:/C:/Users/INTEL/OneDrive/Documentos/Grupo7/SmartHome_Solution/src/com/smart/home/dao/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>
