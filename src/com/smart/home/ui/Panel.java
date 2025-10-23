@@ -44,6 +44,7 @@ public class Panel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnFi = new javax.swing.JButton();
         back = new javax.swing.JPanel();
         menu = new javax.swing.JPanel();
         btnIni = new javax.swing.JButton();
@@ -51,15 +52,31 @@ public class Panel extends javax.swing.JFrame {
         brnIn = new javax.swing.JButton();
         btnCli = new javax.swing.JButton();
         btnEm = new javax.swing.JButton();
-        btnFi = new javax.swing.JButton();
         btnAg = new javax.swing.JButton();
         btnRep = new javax.swing.JButton();
+        btnFi1 = new javax.swing.JButton();
         conten = new javax.swing.JPanel();
+
+        btnFi.setBackground(new java.awt.Color(0, 0, 255));
+        btnFi.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
+        btnFi.setForeground(new java.awt.Color(255, 255, 255));
+        btnFi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/finanzas.png"))); // NOI18N
+        btnFi.setText("Finanzas");
+        btnFi.setBorder(null);
+        btnFi.setBorderPainted(false);
+        btnFi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFi.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnFi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 480));
 
         menu.setBackground(new java.awt.Color(0, 0, 255));
+        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnIni.setBackground(new java.awt.Color(0, 0, 255));
         btnIni.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -77,6 +94,7 @@ public class Panel extends javax.swing.JFrame {
                 btnIniActionPerformed(evt);
             }
         });
+        menu.add(btnIni, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 400, 56));
 
         btnPro.setBackground(new java.awt.Color(0, 0, 255));
         btnPro.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -93,6 +111,7 @@ public class Panel extends javax.swing.JFrame {
                 btnProActionPerformed(evt);
             }
         });
+        menu.add(btnPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 400, 56));
 
         brnIn.setBackground(new java.awt.Color(0, 0, 255));
         brnIn.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -109,6 +128,7 @@ public class Panel extends javax.swing.JFrame {
                 brnInActionPerformed(evt);
             }
         });
+        menu.add(brnIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 410, 56));
 
         btnCli.setBackground(new java.awt.Color(0, 0, 255));
         btnCli.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -125,6 +145,7 @@ public class Panel extends javax.swing.JFrame {
                 btnCliActionPerformed(evt);
             }
         });
+        menu.add(btnCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 410, 56));
 
         btnEm.setBackground(new java.awt.Color(0, 0, 255));
         btnEm.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -173,6 +194,7 @@ public class Panel extends javax.swing.JFrame {
                 btnAgActionPerformed(evt);
             }
         });
+        menu.add(btnAg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 400, 56));
 
         btnRep.setBackground(new java.awt.Color(0, 0, 255));
         btnRep.setFont(new java.awt.Font("Segoe UI Variable", 1, 14)); // NOI18N
@@ -233,26 +255,30 @@ public class Panel extends javax.swing.JFrame {
         conten.setLayout(contenLayout);
         contenLayout.setHorizontalGroup(
             contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
         contenLayout.setVerticalGroup(
             contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 495, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
         back.setLayout(backLayout);
         backLayout.setHorizontalGroup(
             backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(backLayout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(conten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(conten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         backLayout.setVerticalGroup(
             backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(conten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(backLayout.createSequentialGroup()
+                .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(conten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -263,7 +289,7 @@ public class Panel extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -290,10 +316,6 @@ public class Panel extends javax.swing.JFrame {
         ShowJPanel(new Empleados());
     }//GEN-LAST:event_btnEmActionPerformed
 
-    private void btnFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiActionPerformed
-        ShowJPanel(new Financiero());
-    }//GEN-LAST:event_btnFiActionPerformed
-
     private void btnRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepActionPerformed
         ShowJPanel(new Reportes());
     }//GEN-LAST:event_btnRepActionPerformed
@@ -301,6 +323,14 @@ public class Panel extends javax.swing.JFrame {
     private void btnAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgActionPerformed
         ShowJPanel(new Agregar());
     }//GEN-LAST:event_btnAgActionPerformed
+
+    private void btnFi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFi1ActionPerformed
+        ShowJPanel(new Financiero());
+    }//GEN-LAST:event_btnFi1ActionPerformed
+
+    private void btnFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,6 +374,7 @@ public class Panel extends javax.swing.JFrame {
     private javax.swing.JButton btnCli;
     private javax.swing.JButton btnEm;
     private javax.swing.JButton btnFi;
+    private javax.swing.JButton btnFi1;
     private javax.swing.JButton btnIni;
     private javax.swing.JButton btnPro;
     private javax.swing.JButton btnRep;
