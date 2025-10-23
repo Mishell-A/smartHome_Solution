@@ -1,6 +1,5 @@
 package com.smart.home.ui;
 import java.awt.BorderLayout;
-import java.net.URL;
 import javax.swing.JPanel;
 
 /**
@@ -337,16 +336,8 @@ public class Panel extends javax.swing.JFrame {
                 new Panel().setVisible(true);
             }
         });
-        URL url = Panel.class.getResource("/Imagenes/Agregar Usuario.png");
-        System.out.println("URL: " + url);
-        if (url == null) {
-        System.out.println("¡No se encontró la imagen!");
-         } else {
-        System.out.println("Imagen cargada correctamente.");
-}
-
-
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel back;
