@@ -7,6 +7,7 @@ import com.smart.home.dao.FinanzasDAO;
 import com.smart.home.model.finanzas.*;
 import java.util.List;
 import java.util.Calendar;
+import java.util.HashSet;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,7 +47,6 @@ public class Financiero extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         spT = new javax.swing.JScrollPane();
         jtablaMovimientos = new javax.swing.JTable();
         jp1 = new javax.swing.JPanel();
@@ -149,42 +149,41 @@ public class Financiero extends javax.swing.JPanel {
         jp1Layout.setHorizontalGroup(
             jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jtxtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(210, 210, 210)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
+                        .addGap(20, 20, 20)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jtxtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jp1Layout.createSequentialGroup()
-                                .addComponent(jBtnGuardar)
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton2)))
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(210, 210, 210)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jp1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton3)
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton4)
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton5))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jcmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jp1Layout.createSequentialGroup()
+                                .addComponent(jFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97)
-                                .addComponent(jcmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jcmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jp1Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jBtnGuardar)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton2)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton3)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton4)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton5)))
                 .addGap(39, 39, 39))
         );
         jp1Layout.setVerticalGroup(
@@ -218,8 +217,9 @@ public class Financiero extends javax.swing.JPanel {
                     .addComponent(jBtnGuardar)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)))
+                    .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton4)
+                        .addComponent(jButton5))))
         );
 
         add(jp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 50, -1, 210));
@@ -272,13 +272,18 @@ public class Financiero extends javax.swing.JPanel {
         });
     }
     private void jBtnLimpiar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimpiar
-        
+       jFecha.setDate(null);
+       jtxtMonto.setText("");
+       jtxtDescripcion.setText("");
+       jcmbTipo.setSelectedIndex(0);
+       jcmbCategoria.setSelectedIndex(0);
+       jtablaMovimientos.clearSelection();
     }//GEN-LAST:event_jBtnLimpiar
 
     private void jBtnGuardar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar
         
         try {
-            // 1️⃣ Toma los datos del formulario
+            //Toma los datos datos del formulario
             String dia = Integer.toString(jFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
             String mes = Integer.toString(jFecha.getCalendar().get(Calendar.MONTH)+1);
             String año = Integer.toString(jFecha.getCalendar().get(Calendar.YEAR));
@@ -317,7 +322,6 @@ public class Financiero extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private com.toedter.calendar.JDateChooser jFecha;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
