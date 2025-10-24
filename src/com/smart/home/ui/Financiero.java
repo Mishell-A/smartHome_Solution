@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Calendar;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -69,8 +70,8 @@ public class Financiero extends javax.swing.JPanel {
         jcmbCategoria = new javax.swing.JComboBox<>();
         lblC = new javax.swing.JLabel();
         lblF = new javax.swing.JLabel();
-        cbI = new javax.swing.JComboBox<>();
-        btnV = new javax.swing.JButton();
+        jcmbFiltro = new javax.swing.JComboBox<>();
+        btnFiltrar = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -253,13 +254,18 @@ public class Financiero extends javax.swing.JPanel {
         lblF.setText("Filtrar:");
         add(lblF, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 270, 87, 25));
 
-        cbI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingreso", "Egreso" }));
-        add(cbI, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 271, 113, -1));
+        jcmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingreso", "Egreso", "" }));
+        add(jcmbFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 271, 113, -1));
 
-        btnV.setBackground(new java.awt.Color(0, 0, 0));
-        btnV.setForeground(new java.awt.Color(255, 255, 255));
-        btnV.setText("Ver");
-        add(btnV, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 271, 59, -1));
+        btnFiltrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnFiltrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnFiltrar.setText("Ver");
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
+        add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 271, 59, -1));
     }// </editor-fold>//GEN-END:initComponents
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -286,11 +292,11 @@ public class Financiero extends javax.swing.JPanel {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Financiero().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Financiero().setVisible(true);
+//            }
+//        });
     }
     private void jBtnLimpiar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimpiar
        jFecha.setDate(null);
@@ -304,7 +310,6 @@ public class Financiero extends javax.swing.JPanel {
     private void jBtnGuardar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar
         
         try {
-            //Toma los datos datos del formulario
             String dia = Integer.toString(jFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
             String mes = Integer.toString(jFecha.getCalendar().get(Calendar.MONTH)+1);
             String año = Integer.toString(jFecha.getCalendar().get(Calendar.YEAR));
@@ -314,7 +319,6 @@ public class Financiero extends javax.swing.JPanel {
             String categoria = jcmbCategoria.getSelectedItem().toString();
             String descripcion = jtxtDescripcion.getText();
 
-            // 2️⃣ Crea el objeto (polimorfismo)
             MovimientoFinanciero mov = tipo.equals("Ingreso") ?
                     new Ingreso(fecha, tipo, categoria, descripcion, monto) :
                     new Egreso(fecha, tipo, categoria, descripcion, monto);
@@ -409,10 +413,21 @@ public class Financiero extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbtnEliminarTodoActionPerformed
 
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
+        String parametroFiltro = jcmbFiltro.getSelectedItem().toString();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel> (modelo);
+        jtablaMovimientos.setRowSorter(tr);
+        
+        if(parametroFiltro != " "){
+            tr.setRowFilter(RowFilter.regexFilter(parametroFiltro));
+        }else{
+            jtablaMovimientos.setRowSorter(tr);
+        }
+    }//GEN-LAST:event_btnFiltrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnV;
-    private javax.swing.JComboBox<String> cbI;
+    private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton jBtnGuardar;
     private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jFecha;
@@ -426,6 +441,7 @@ public class Financiero extends javax.swing.JPanel {
     private javax.swing.JButton jbtnEliminar;
     private javax.swing.JButton jbtnEliminarTodo;
     private javax.swing.JComboBox<String> jcmbCategoria;
+    private javax.swing.JComboBox<String> jcmbFiltro;
     private javax.swing.JComboBox<String> jcmbTipo;
     private javax.swing.JPanel jp1;
     private javax.swing.JTable jtablaMovimientos;
