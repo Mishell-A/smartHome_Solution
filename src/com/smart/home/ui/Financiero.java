@@ -7,7 +7,6 @@ import com.smart.home.dao.FinanzasDAO;
 import com.smart.home.model.finanzas.*;
 import java.util.List;
 import java.util.Calendar;
-import java.util.HashSet;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,7 +22,7 @@ public class Financiero extends javax.swing.JPanel {
     
     public Financiero() {
         initComponents();
-        modelo = (DefaultTableModel) jtablaMovimientos.getModel();
+        initTable();
         cargarDatos("");
     }
     
@@ -35,6 +34,8 @@ public class Financiero extends javax.swing.JPanel {
             m.getFecha(), m.getTipo(), m.getMonto(), m.getCategoria(), m.getDescripcion()
         });
     }
+    
+    
 }
     
 
@@ -60,8 +61,8 @@ public class Financiero extends javax.swing.JPanel {
         jtxtMonto = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jBtnGuardar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbtnEditar = new javax.swing.JButton();
+        jbtnEliminar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jFecha = new com.toedter.calendar.JDateChooser();
@@ -91,6 +92,11 @@ public class Financiero extends javax.swing.JPanel {
                 "Fecha", "Tipo", "Monto", "Categoría", "Descripción"
             }
         ));
+        jtablaMovimientos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtablaMovimientosMouseClicked(evt);
+            }
+        });
         spT.setViewportView(jtablaMovimientos);
 
         add(spT, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 307, 603, 185));
@@ -121,13 +127,23 @@ public class Financiero extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jButton2.setText("Editar");
+        jbtnEditar.setBackground(new java.awt.Color(204, 204, 204));
+        jbtnEditar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jbtnEditar.setText("Editar");
+        jbtnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnEditarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jButton3.setText("Eliminar");
+        jbtnEliminar.setBackground(new java.awt.Color(204, 204, 204));
+        jbtnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jbtnEliminar.setText("Eliminar");
+        jbtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnEliminarActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -140,7 +156,7 @@ public class Financiero extends javax.swing.JPanel {
 
         jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jButton5.setText("Salir");
+        jButton5.setText("Eliminar todo");
 
         jcmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proyectos", "Materiales", "Personal", "Operaciones", "Administración", "Otros" }));
 
@@ -177,9 +193,9 @@ public class Financiero extends javax.swing.JPanel {
                         .addGap(98, 98, 98)
                         .addComponent(jBtnGuardar)
                         .addGap(12, 12, 12)
-                        .addComponent(jButton2)
+                        .addComponent(jbtnEditar)
                         .addGap(12, 12, 12)
-                        .addComponent(jButton3)
+                        .addComponent(jbtnEliminar)
                         .addGap(6, 6, 6)
                         .addComponent(jButton4)
                         .addGap(6, 6, 6)
@@ -215,8 +231,8 @@ public class Financiero extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnGuardar)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
+                    .addComponent(jbtnEditar)
+                    .addComponent(jbtnEliminar)
                     .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton4)
                         .addComponent(jButton5))))
@@ -302,9 +318,9 @@ public class Financiero extends javax.swing.JPanel {
             if (dao.insertarMovimiento(mov)) {
                 JOptionPane.showMessageDialog(this, "Movimiento guardado correctamente");
 
-                // 🔹 4️⃣ Actualiza el JTable inmediatamente:
-                cargarDatos("");   // ← aquí se refresca la tabla con los datos actuales
-                //limpiarCampos();   // ← limpia los campos visuales
+                
+                cargarDatos("");   
+                //limpiarCampos();   
             } else {
                 JOptionPane.showMessageDialog(this, "Error al guardar movimiento");
             }
@@ -313,13 +329,74 @@ public class Financiero extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jBtnGuardar
 
+    private void jbtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEditarActionPerformed
+        try {
+        int fila = jtablaMovimientos.getSelectedRow();
+        if(fila == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un movimiento.");
+            return;
+        }
+
+        // Toma los datos del formulario
+        String dia = Integer.toString(jFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(jFecha.getCalendar().get(Calendar.MONTH)+1);
+        String año = Integer.toString(jFecha.getCalendar().get(Calendar.YEAR));
+        String fecha = año + "-" + mes + "-" + dia;
+        String tipo = jcmbTipo.getSelectedItem().toString();
+        double monto = Double.parseDouble(jtxtMonto.getText());
+        String categoria = jcmbCategoria.getSelectedItem().toString();
+        String descripcion = jtxtDescripcion.getText();
+
+        // Actualiza la tabla
+        modelo.setValueAt(fecha, fila, 0);
+        modelo.setValueAt(tipo, fila, 1);
+        modelo.setValueAt(monto, fila, 2);
+        modelo.setValueAt(categoria, fila, 3);
+        modelo.setValueAt(descripcion, fila, 4);
+
+        JOptionPane.showMessageDialog(this, "Movimiento actualizado en la tabla.");
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+        
+    }//GEN-LAST:event_jbtnEditarActionPerformed
+
+    private void jtablaMovimientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtablaMovimientosMouseClicked
+        if (evt.getClickCount() == 2) {
+            int fila = jtablaMovimientos.getSelectedRow();
+
+            if (fila == -1) return; // Seguridad
+
+            String fecha = (String) modelo.getValueAt(fila, 0);
+            String tipo = (String) modelo.getValueAt(fila, 1);
+            double monto = (Double) modelo.getValueAt(fila, 2);
+            String categoria = (String) modelo.getValueAt(fila, 3);
+            String descripcion = (String) modelo.getValueAt(fila, 4);
+
+            // Pasa los datos al formulario
+            jtxtMonto.setText(String.valueOf(monto));
+            jtxtDescripcion.setText(descripcion);
+            jcmbCategoria.setSelectedItem(categoria);
+            jcmbTipo.setSelectedItem(tipo);
+            try {
+                java.util.Date date = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+                jFecha.setDate(date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jtablaMovimientosMouseClicked
+
+    private void jbtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnV;
     private javax.swing.JComboBox<String> cbI;
     private javax.swing.JButton jBtnGuardar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private com.toedter.calendar.JDateChooser jFecha;
@@ -329,6 +406,8 @@ public class Financiero extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton jbtnEditar;
+    private javax.swing.JButton jbtnEliminar;
     private javax.swing.JComboBox<String> jcmbCategoria;
     private javax.swing.JComboBox<String> jcmbTipo;
     private javax.swing.JPanel jp1;
@@ -339,5 +418,16 @@ public class Financiero extends javax.swing.JPanel {
     private javax.swing.JLabel lblF;
     private javax.swing.JScrollPane spT;
     // End of variables declaration//GEN-END:variables
-
+    
+    private void initTable()
+    {
+        String[] header = {"Fecha", "Tipo", "Monto", "Categoría", "Descripción"};
+        modelo = new DefaultTableModel(header,0){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        jtablaMovimientos.setModel(modelo);
+    }
 }
