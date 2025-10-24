@@ -64,7 +64,7 @@ public class Financiero extends javax.swing.JPanel {
         jbtnEditar = new javax.swing.JButton();
         jbtnEliminar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jbtnEliminarTodo = new javax.swing.JButton();
         jFecha = new com.toedter.calendar.JDateChooser();
         jcmbCategoria = new javax.swing.JComboBox<>();
         lblC = new javax.swing.JLabel();
@@ -154,9 +154,14 @@ public class Financiero extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jButton5.setText("Eliminar todo");
+        jbtnEliminarTodo.setBackground(new java.awt.Color(204, 204, 204));
+        jbtnEliminarTodo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jbtnEliminarTodo.setText("Eliminar todo");
+        jbtnEliminarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnEliminarTodoActionPerformed(evt);
+            }
+        });
 
         jcmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proyectos", "Materiales", "Personal", "Operaciones", "Administración", "Otros" }));
 
@@ -199,7 +204,7 @@ public class Financiero extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(jButton4)
                         .addGap(6, 6, 6)
-                        .addComponent(jButton5)))
+                        .addComponent(jbtnEliminarTodo)))
                 .addGap(39, 39, 39))
         );
         jp1Layout.setVerticalGroup(
@@ -235,7 +240,7 @@ public class Financiero extends javax.swing.JPanel {
                     .addComponent(jbtnEliminar)
                     .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton4)
-                        .addComponent(jButton5))))
+                        .addComponent(jbtnEliminarTodo))))
         );
 
         add(jp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 50, -1, 210));
@@ -389,8 +394,20 @@ public class Financiero extends javax.swing.JPanel {
     }//GEN-LAST:event_jtablaMovimientosMouseClicked
 
     private void jbtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarActionPerformed
-        // TODO add your handling code here:
+        if(jtablaMovimientos.getSelectedColumn() != 1){
+            return;
+        }
+        int fila = jtablaMovimientos.getSelectedRow();
+        modelo.removeRow(fila);
     }//GEN-LAST:event_jbtnEliminarActionPerformed
+
+    private void jbtnEliminarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarTodoActionPerformed
+        int filas = jtablaMovimientos.getRowCount();
+        
+        for(int i = filas - 1; i >=0 ; i--){
+            modelo.removeRow(i);
+        }
+    }//GEN-LAST:event_jbtnEliminarTodoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -398,7 +415,6 @@ public class Financiero extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbI;
     private javax.swing.JButton jBtnGuardar;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private com.toedter.calendar.JDateChooser jFecha;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -408,6 +424,7 @@ public class Financiero extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton jbtnEditar;
     private javax.swing.JButton jbtnEliminar;
+    private javax.swing.JButton jbtnEliminarTodo;
     private javax.swing.JComboBox<String> jcmbCategoria;
     private javax.swing.JComboBox<String> jcmbTipo;
     private javax.swing.JPanel jp1;
