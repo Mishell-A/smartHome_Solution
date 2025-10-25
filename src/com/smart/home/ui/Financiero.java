@@ -60,8 +60,8 @@ public class Financiero extends javax.swing.JPanel {
         jbtnEliminar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jbtnEliminarTodo = new javax.swing.JButton();
-        jFecha = new com.toedter.calendar.JDateChooser();
         jcmbCategoria = new javax.swing.JComboBox<>();
+        jFecha = new com.toedter.calendar.JDateChooser();
         lblC = new javax.swing.JLabel();
         lblF = new javax.swing.JLabel();
         jcmbFiltro = new javax.swing.JComboBox<>();
@@ -182,8 +182,8 @@ public class Financiero extends javax.swing.JPanel {
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jp1Layout.createSequentialGroup()
-                                .addComponent(jFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97)
+                                .addComponent(jFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(129, 129, 129)
                                 .addComponent(jcmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jp1Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
@@ -222,8 +222,8 @@ public class Financiero extends javax.swing.JPanel {
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnGuardar)
