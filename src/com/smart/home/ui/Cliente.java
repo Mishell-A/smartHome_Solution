@@ -2,6 +2,7 @@ package com.smart.home.ui;
 import com.smart.home.dao.ClienteDAO;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class Cliente extends javax.swing.JPanel {
@@ -92,6 +93,11 @@ public class Cliente extends javax.swing.JPanel {
         jbtnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         jbtnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jbtnGuardar.setText("Guardar");
+        jbtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnGuardarActionPerformed(evt);
+            }
+        });
 
         jbtnEditar.setBackground(new java.awt.Color(204, 204, 204));
         jbtnEditar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -104,6 +110,11 @@ public class Cliente extends javax.swing.JPanel {
         jbtnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
         jbtnLimpiar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jbtnLimpiar.setText("Limpiar");
+        jbtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnLimpiarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Tipo");
 
@@ -256,6 +267,30 @@ public class Cliente extends javax.swing.JPanel {
                 .addGap(45, 45, 45))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLimpiarActionPerformed
+        jtxtNombre.setText("");
+        jtxtDniRuc.setText("");
+        jtxtCelular.setText("");
+        jtxtCorreo.setText("");
+        jcmbTipo.setSelectedIndex(0);
+        jtableClientes.clearSelection();
+    }//GEN-LAST:event_jbtnLimpiarActionPerformed
+
+    private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
+        try {
+            if (jtxtNombre.getText().trim().isEmpty() ||
+            jtxtDniRuc.getText().trim().isEmpty() ||
+            jtxtCelular.getText().trim().isEmpty() ||
+            jtxtCorreo.getText().trim().isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "Todos los campos deben ser completados.");
+                return;
+            }
+        }catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_jbtnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
