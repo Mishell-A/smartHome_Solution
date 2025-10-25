@@ -67,8 +67,6 @@ public class Financiero extends javax.swing.JPanel {
         jcmbFiltro = new javax.swing.JComboBox<>();
         btnFiltrar = new javax.swing.JButton();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jtablaMovimientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -93,8 +91,6 @@ public class Financiero extends javax.swing.JPanel {
             }
         });
         spT.setViewportView(jtablaMovimientos);
-
-        add(spT, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 307, 603, 185));
 
         jp1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -238,18 +234,13 @@ public class Financiero extends javax.swing.JPanel {
                         .addComponent(jbtnEliminarTodo))))
         );
 
-        add(jp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 50, -1, 210));
-
         lblC.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
         lblC.setText("Control Financiero");
-        add(lblC, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 6, 279, -1));
 
         lblF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblF.setText("Filtrar:");
-        add(lblF, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 270, 87, 25));
 
         jcmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Ingreso", "Egreso" }));
-        add(jcmbFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 271, 113, -1));
 
         btnFiltrar.setBackground(new java.awt.Color(0, 0, 0));
         btnFiltrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,7 +250,46 @@ public class Financiero extends javax.swing.JPanel {
                 btnFiltrarActionPerformed(evt);
             }
         });
-        add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 271, 59, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblC, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(lblF, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jcmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(lblC)
+                .addGap(12, 12, 12)
+                .addComponent(jp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFiltrar))))
+                .addGap(12, 12, 12)
+                .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
