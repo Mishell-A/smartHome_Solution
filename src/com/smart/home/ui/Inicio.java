@@ -4,6 +4,14 @@
  */
 package com.smart.home.ui;
 
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
 /**
  *
  * @author USER
@@ -26,7 +34,7 @@ public class Inicio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bg = new javax.swing.JPanel();
+        bga = new javax.swing.JPanel();
         jpT = new javax.swing.JPanel();
         lblT = new javax.swing.JLabel();
         txt1 = new javax.swing.JTextField();
@@ -44,6 +52,7 @@ public class Inicio extends javax.swing.JPanel {
         txtI = new javax.swing.JTextField();
         txtE = new javax.swing.JTextField();
         btn4 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(680, 0));
 
@@ -57,6 +66,11 @@ public class Inicio extends javax.swing.JPanel {
         btnT.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnT.setForeground(new java.awt.Color(255, 255, 255));
         btnT.setText("ver detalle");
+        btnT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpTLayout = new javax.swing.GroupLayout(jpT);
         jpT.setLayout(jpTLayout);
@@ -97,6 +111,11 @@ public class Inicio extends javax.swing.JPanel {
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn2.setForeground(new java.awt.Color(255, 255, 255));
         btn2.setText("ver detalle");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpPLayout = new javax.swing.GroupLayout(jpP);
         jpP.setLayout(jpPLayout);
@@ -137,6 +156,11 @@ public class Inicio extends javax.swing.JPanel {
         btn3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn3.setForeground(new java.awt.Color(255, 255, 255));
         btn3.setText("ver detalle");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpSLayout = new javax.swing.GroupLayout(jpS);
         jpS.setLayout(jpSLayout);
@@ -176,6 +200,11 @@ public class Inicio extends javax.swing.JPanel {
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn4.setForeground(new java.awt.Color(255, 255, 255));
         btn4.setText("ver detalle");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpILayout = new javax.swing.GroupLayout(jpI);
         jpI.setLayout(jpILayout);
@@ -211,54 +240,198 @@ public class Inicio extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
-        bg.setLayout(bgLayout);
-        bgLayout.setHorizontalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 329, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 146, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout bgaLayout = new javax.swing.GroupLayout(bga);
+        bga.setLayout(bgaLayout);
+        bgaLayout.setHorizontalGroup(
+            bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgaLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(45, 45, 45))
+            .addGroup(bgaLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        bgLayout.setVerticalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
+        bgaLayout.setVerticalGroup(
+            bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgaLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+         double n1 = Double.parseDouble(txtI.getText());
+         double n2 = Double.parseDouble(txtE.getText());
+         
+         DefaultPieDataset datos = new DefaultPieDataset();
+         datos.setValue("INGRESOS", n1);
+         datos.setValue("EGRESOS", n2);
+         
+         JFreeChart grafico_circular = ChartFactory.createPieChart(
+         "INGRESOS / EGRESOS",  // título del gráfico
+          datos,                 // datos
+          true,                  // incluir leyenda
+          true,                  // incluir tooltips
+          false                  // no generar URL
+        );
+         
+         ChartPanel panel = new ChartPanel(grafico_circular);
+         panel.setMouseWheelEnabled(true);
+         panel.setPreferredSize(new Dimension(250,130));
+         
+         jPanel1.removeAll();
+         jPanel1.setLayout(new BorderLayout());
+         jPanel1.add(panel, BorderLayout.CENTER);
+         jPanel1.setLayout(new BorderLayout());
+         jPanel1.add(panel,BorderLayout.NORTH);
+         jPanel1.validate();
+         jPanel1.repaint();
+         
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        String[][] productos = {
+        {"Plancha de drywall", "4"},
+        {"Tornillos punta fina", "3"},
+        {"Cinta de papel", "2"},
+        {"Masilla 25kg", "1"},
+        {"Perfil metálico", "5"}
+    };
+
+        String[] columnas = {"Producto", "Stock"};
+
+        
+        javax.swing.JTable tabla = new javax.swing.JTable(productos, columnas);
+        javax.swing.JScrollPane scroll = new javax.swing.JScrollPane(tabla);
+        scroll.setPreferredSize(new java.awt.Dimension(250, 120));
+
+    
+        jPanel1.removeAll();
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+    
+        javax.swing.JLabel titulo = new javax.swing.JLabel("📦 Productos con Stock Bajo", javax.swing.SwingConstants.CENTER);
+        titulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+
+        jPanel1.add(titulo, java.awt.BorderLayout.NORTH);
+        jPanel1.add(scroll, java.awt.BorderLayout.CENTER);
+
+    
+        jPanel1.validate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btnTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTActionPerformed
+        String[][] clientes = {
+        {"Construcciones López", "Lima"},
+        {"Drywall Express", "Callao"},
+        {"Estructuras del Norte", "Trujillo"},
+        {"Proyectos Sánchez", "Arequipa"},
+        {"Servicios JM", "Chiclayo"}
+    };
+
+        String[] columnas = {"Cliente", "Ciudad"};
+
+    
+       javax.swing.JTable tabla = new javax.swing.JTable(clientes, columnas);
+       javax.swing.JScrollPane scroll = new javax.swing.JScrollPane(tabla);
+       scroll.setPreferredSize(new java.awt.Dimension(250, 120));
+
+    
+       jPanel1.removeAll();
+       jPanel1.setLayout(new java.awt.BorderLayout());
+
+    
+       javax.swing.JLabel titulo = new javax.swing.JLabel("👤 Clientes Registrados", javax.swing.SwingConstants.CENTER);
+       titulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+
+       jPanel1.add(titulo, java.awt.BorderLayout.NORTH);
+       jPanel1.add(scroll, java.awt.BorderLayout.CENTER);
+
+    
+       jPanel1.validate();
+       jPanel1.repaint();
+    }//GEN-LAST:event_btnTActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        String[][] proyectos = {
+        {"Oficina Central ABC", "En ejecución"},
+        {"Vivienda San Miguel", "Completado"},
+        {"Local Comercial Trébol", "En ejecución"},
+        {"Remodelación Surco", "Pendiente"},
+        {"Tienda Mall Aventura", "En ejecución"}
+    };
+
+        String[] columnas = {"Proyecto", "Estado"};
+
+    
+        javax.swing.JTable tabla = new javax.swing.JTable(proyectos, columnas);
+        javax.swing.JScrollPane scroll = new javax.swing.JScrollPane(tabla);
+        scroll.setPreferredSize(new java.awt.Dimension(250, 120));
+
+    
+        jPanel1.removeAll();
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+    
+        javax.swing.JLabel titulo = new javax.swing.JLabel("🏗️ Proyectos Activos", javax.swing.SwingConstants.CENTER);
+        titulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+
+        jPanel1.add(titulo, java.awt.BorderLayout.NORTH);
+        jPanel1.add(scroll, java.awt.BorderLayout.CENTER);
+
+    
+        jPanel1.validate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_btn2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bg;
+    private javax.swing.JPanel bga;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
     private javax.swing.JButton btnT;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpI;
     private javax.swing.JPanel jpP;
     private javax.swing.JPanel jpS;
