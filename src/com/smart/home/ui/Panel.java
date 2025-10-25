@@ -234,7 +234,7 @@ public class Panel extends javax.swing.JFrame {
         );
         contenLayout.setVerticalGroup(
             contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
