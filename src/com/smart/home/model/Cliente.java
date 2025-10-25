@@ -11,15 +11,15 @@ package com.smart.home.model;
 public class Cliente {
     private String nombre;
     private String apellido;
-    private String dniRuc;
-    private String telefono;
+    private int dniRuc;
+    private int telefono;
     private String correo;
     private String tipo;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String dniRuc, String telefono, String correo, String tipo) {
+    public Cliente(String nombre, String apellido, int dniRuc, int telefono, String correo, String tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dniRuc = dniRuc;
@@ -44,19 +44,19 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getDniRuc() {
+    public int getDniRuc() {
         return dniRuc;
     }
 
-    public void setDniRuc(String dniRuc) {
+    public void setDniRuc(int dniRuc) {
         this.dniRuc = dniRuc;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
@@ -75,6 +75,9 @@ public class Cliente {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+    
+ 
 
 
 }
