@@ -353,15 +353,18 @@ public class Financiero extends javax.swing.JPanel {
                     new Egreso(fecha, tipo, categoria, descripcion, monto);
 
 
-            if (dao.insertarMovimiento(mov)) {
-                JOptionPane.showMessageDialog(this, "Movimiento guardado correctamente");
+            
+            // Guardar en el DAO (
+            dao.insertarMovimiento(mov);
 
-                
-                cargarDatos("");   
-                //limpiarCampos();   
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al guardar movimiento");
-            }
+            
+            // cargarDatos("");
+
+            // Agrega directamente el nuevo registro a la tabla
+            modelo.addRow(new Object[]{fecha, tipo, monto, categoria, descripcion});
+
+            JOptionPane.showMessageDialog(this, "Movimiento guardado correctamente.");
+
         } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
