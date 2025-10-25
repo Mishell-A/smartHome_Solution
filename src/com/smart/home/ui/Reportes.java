@@ -7,6 +7,15 @@ package com.smart.home.ui;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+//PDF
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+import com.itextpdf.text.pdf.draw.LineSeparator;
+
+import java.io.FileOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author USER
@@ -23,6 +32,81 @@ public class Reportes extends javax.swing.JPanel {
             0
         );
         jTable.setModel(modelo);
+    }
+    private void generarDocumentoPDF(String tipoDocumento) {
+        try {
+            int filaSeleccionada = jTable.getSelectedRow();
+
+            if (filaSeleccionada == -1) {
+                JOptionPane.showMessageDialog(this,
+                        "Por favor, seleccione un registro en la tabla para generar el " + tipoDocumento + ".",
+                        "Sin selección",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Obtenemos los datos de la fila seleccionada
+            String cliente = jTable.getValueAt(filaSeleccionada, 0).toString();
+            String dni = jTable.getValueAt(filaSeleccionada, 1).toString();
+            String proyecto = jTable.getValueAt(filaSeleccionada, 2).toString();
+            String descripcion = jTable.getValueAt(filaSeleccionada, 3).toString();
+            String encargado = jTable.getValueAt(filaSeleccionada, 4).toString();
+            String estado = jTable.getValueAt(filaSeleccionada, 5).toString();
+            String fechaPago = jTable.getValueAt(filaSeleccionada, 6).toString();
+            String metodoPago = jTable.getValueAt(filaSeleccionada, 7).toString();
+            String monto = jTable.getValueAt(filaSeleccionada, 8).toString();
+
+            // Nombre del archivo y ruta de salida
+            String nombreArchivo = tipoDocumento + "_" + cliente.replace(" ", "_") + ".pdf";
+            String rutaSalida = System.getProperty("user.home") + "/Documents/" + nombreArchivo;
+
+            // Crear documento PDF
+            Document documento = new Document();
+            PdfWriter.getInstance(documento, new FileOutputStream(rutaSalida));
+            documento.open();
+
+            // Encabezado
+            Font tituloFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+            Paragraph titulo = new Paragraph(tipoDocumento + " - Sistema de Drywall\n\n", tituloFont);
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            documento.add(titulo);
+
+            // Fecha
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            Paragraph fecha = new Paragraph("Fecha de emisión: " + formato.format(LocalDateTime.now()) + "\n\n");
+            documento.add(fecha);
+
+            // Datos del cliente y proyecto
+            documento.add(new Paragraph("Cliente: " + cliente));
+            documento.add(new Paragraph("DNI: " + dni));
+            documento.add(new Paragraph("Proyecto: " + proyecto));
+            documento.add(new Paragraph("Descripción: " + descripcion));
+            documento.add(new Paragraph("Encargado: " + encargado));
+            documento.add(new Paragraph("Estado: " + estado));
+            documento.add(new Paragraph("Fecha de Pago: " + fechaPago));
+            documento.add(new Paragraph("Método de Pago: " + metodoPago));
+            documento.add(new Paragraph("Monto: S/ " + monto + "\n\n"));
+
+            documento.add(new Paragraph("-------------------------------------------"));
+
+            Paragraph mensajeFinal = new Paragraph("\nGracias por su preferencia.\n");
+            mensajeFinal.setAlignment(Element.ALIGN_CENTER);
+            documento.add(mensajeFinal);
+
+            documento.close();
+
+            JOptionPane.showMessageDialog(this,
+                    tipoDocumento + " generado exitosamente en:\n" + rutaSalida,
+                    "PDF Creado",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al generar el PDF: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -61,9 +145,9 @@ public class Reportes extends javax.swing.JPanel {
         txtEstado = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtMetodoPago = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnBoleta = new javax.swing.JButton();
+        btnFactura = new javax.swing.JButton();
+        btnProforma = new javax.swing.JButton();
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -261,17 +345,32 @@ public class Reportes extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jButton5.setBackground(new java.awt.Color(0, 153, 153));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Boleta");
+        btnBoleta.setBackground(new java.awt.Color(0, 153, 153));
+        btnBoleta.setForeground(new java.awt.Color(255, 255, 255));
+        btnBoleta.setText("Boleta");
+        btnBoleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBoletaActionPerformed(evt);
+            }
+        });
 
-        jButton7.setBackground(new java.awt.Color(102, 0, 51));
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Factura");
+        btnFactura.setBackground(new java.awt.Color(102, 0, 51));
+        btnFactura.setForeground(new java.awt.Color(255, 255, 255));
+        btnFactura.setText("Factura");
+        btnFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturaActionPerformed(evt);
+            }
+        });
 
-        jButton8.setBackground(new java.awt.Color(255, 102, 102));
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Proforma");
+        btnProforma.setBackground(new java.awt.Color(255, 102, 102));
+        btnProforma.setForeground(new java.awt.Color(255, 255, 255));
+        btnProforma.setText("Proforma");
+        btnProforma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProformaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -286,11 +385,11 @@ public class Reportes extends javax.swing.JPanel {
                             .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(186, 186, 186)
-                        .addComponent(jButton5)
+                        .addComponent(btnBoleta)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton7)
+                        .addComponent(btnFactura)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton8)))
+                        .addComponent(btnProforma)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -298,9 +397,9 @@ public class Reportes extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(btnBoleta)
+                    .addComponent(btnFactura)
+                    .addComponent(btnProforma))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
@@ -493,16 +592,87 @@ public class Reportes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnGenerarBoletaActionPerformed
 
+    private void btnBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaActionPerformed
+
+        // BOLETA                                          
+        int filaSeleccionada = jTable.getSelectedRow();
+    
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor, seleccione un registro en la tabla para generar la BOLETA.",
+                    "Sin selección",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JOptionPane.showMessageDialog(this,
+                "Generando BOLETA para el cliente: " + jTable.getValueAt(filaSeleccionada, 0)
+                + "\nProyecto: " + jTable.getValueAt(filaSeleccionada, 2)
+                + "\nMonto: S/ " + jTable.getValueAt(filaSeleccionada, 8)
+                + "\n\nGenerando...",
+                "Generar Boleta",
+                JOptionPane.INFORMATION_MESSAGE);
+
+        generarDocumentoPDF("Boleta");
+    }//GEN-LAST:event_btnBoletaActionPerformed
+
+    private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
+        
+        // FACTURA
+        int filaSeleccionada = jTable.getSelectedRow();
+    
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor, seleccione un registro en la tabla para generar la FACTURA.",
+                    "Sin selección",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JOptionPane.showMessageDialog(this,
+                "Generando FACTURA para el cliente: " + jTable.getValueAt(filaSeleccionada, 0)
+                + "\nProyecto: " + jTable.getValueAt(filaSeleccionada, 2)
+                + "\nMonto: S/ " + jTable.getValueAt(filaSeleccionada, 8)
+                + "\n\nGenerando...",
+                "Generar Factura",
+                JOptionPane.INFORMATION_MESSAGE);
+
+        generarDocumentoPDF("Factura");
+    }//GEN-LAST:event_btnFacturaActionPerformed
+
+    private void btnProformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProformaActionPerformed
+        // PROFORMA
+        int filaSeleccionada = jTable.getSelectedRow();
+    
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor, seleccione un registro en la tabla para generar la PROFORMA.",
+                    "Sin selección",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        JOptionPane.showMessageDialog(this,
+                "Generando PROFORMA (cotización) para el cliente: " + jTable.getValueAt(filaSeleccionada, 0)
+                + "\nProyecto: " + jTable.getValueAt(filaSeleccionada, 2)
+                + "\nMonto estimado: S/ " + jTable.getValueAt(filaSeleccionada, 8)
+                + "\n\nGenerando...",
+                "Generar Proforma",
+                JOptionPane.INFORMATION_MESSAGE);
+
+        generarDocumentoPDF("Proforma");
+    }//GEN-LAST:event_btnProformaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBoleta;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnFactura;
     private javax.swing.JButton btnGenerarBoleta;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btnProforma;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
