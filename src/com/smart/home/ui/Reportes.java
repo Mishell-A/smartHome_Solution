@@ -17,11 +17,17 @@ public class Reportes extends javax.swing.JPanel {
     public Reportes() {
         initComponents();
         DefaultTableModel modelo = new DefaultTableModel(
-            new Object[]{"Cliente", "DNI", "Proyecto", "Descripción", "Encargado", "Estado", "Fecha de Pago", "Método de Pago", "Monto"}, 
-            0
-        );
+          new Object[]{"Cliente", "DNI", "Proyecto", "Descripción", "Encargado", "Estado", "Fecha de Pago", "Método de Pago", "Monto"},0) 
+        
+        {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // ❌ No se puede editar ninguna celda
+            }
+        };
         jTable.setModel(modelo);
     }
+
     private void generarDocumentoPDF(String tipoDocumento) {
         try {
             int filaSeleccionada = jTable.getSelectedRow();
@@ -97,7 +103,7 @@ public class Reportes extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -145,6 +151,11 @@ public class Reportes extends javax.swing.JPanel {
                 "N°", "Fecha", "Descripción", "Monto", "Metodo de Pago"
             }
         ));
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
         spT.setViewportView(jTable);
 
         jp1.setBackground(new java.awt.Color(255, 255, 255));
@@ -252,7 +263,6 @@ public class Reportes extends javax.swing.JPanel {
                         .addGap(8, 8, 8)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jp1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnEliminar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnLimpiar)
@@ -409,28 +419,28 @@ public class Reportes extends javax.swing.JPanel {
             String monto = txtMonto.getText();
 
             if (cliente.isEmpty() || dni.isEmpty()) {
-                JOptionPane.showMessageDialog(this, 
-                    "Por favor, complete al menos los campos de Cliente y DNI.", 
-                    "Campos incompletos", 
-                    JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                        "Por favor, complete al menos los campos de Cliente y DNI.",
+                        "Campos incompletos",
+                        JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            
+
             modelo.addRow(new Object[]{
                 cliente, dni, proyecto, descripcion, encargado, estado, fechaPago, metodoPago, monto
             });
 
-            JOptionPane.showMessageDialog(this, 
-                    "Reporte guardado y agregado a la tabla exitosamente.", 
-                    "Guardar", 
+            JOptionPane.showMessageDialog(this,
+                    "Reporte guardado y agregado a la tabla exitosamente.",
+                    "Guardar",
                     JOptionPane.INFORMATION_MESSAGE);
 
-        btnLimpiarActionPerformed(evt);
+            btnLimpiarActionPerformed(evt);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                    "Ocurrió un error al intentar guardar: " + e.getMessage(), 
-                    "Error", 
+            JOptionPane.showMessageDialog(this,
+                    "Ocurrió un error al intentar guardar: " + e.getMessage(),
+                    "Error",
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -446,7 +456,7 @@ public class Reportes extends javax.swing.JPanel {
         txtFechaPago.setText("");
         txtMetodoPago.setText("");
         txtMonto.setText("");
-        txtProyecto.setText(""); 
+        txtProyecto.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -455,9 +465,9 @@ public class Reportes extends javax.swing.JPanel {
             int filaSeleccionada = jTable.getSelectedRow();
 
             if (filaSeleccionada == -1) {
-                JOptionPane.showMessageDialog(this, 
-                        "Seleccione una fila para editar.", 
-                        "Advertencia", 
+                JOptionPane.showMessageDialog(this,
+                        "Seleccione una fila para editar.",
+                        "Advertencia",
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
@@ -474,15 +484,15 @@ public class Reportes extends javax.swing.JPanel {
             txtMetodoPago.setText(modelo.getValueAt(filaSeleccionada, 7).toString());
             txtMonto.setText(modelo.getValueAt(filaSeleccionada, 8).toString());
 
-            JOptionPane.showMessageDialog(this, 
-                    "Datos cargados. Ahora puedes modificarlos y volver a presionar Guardar.", 
-                    "Editar", 
+            JOptionPane.showMessageDialog(this,
+                    "Datos cargados. Ahora puedes modificarlos y volver a presionar Guardar.",
+                    "Editar",
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                    "Error al intentar editar: " + e.getMessage(), 
-                    "Error", 
+            JOptionPane.showMessageDialog(this,
+                    "Error al intentar editar: " + e.getMessage(),
+                    "Error",
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -494,32 +504,32 @@ public class Reportes extends javax.swing.JPanel {
             int filaSeleccionada = jTable.getSelectedRow();
 
             if (filaSeleccionada == -1) {
-                JOptionPane.showMessageDialog(this, 
-                        "Seleccione una fila para eliminar.", 
-                        "Advertencia", 
+                JOptionPane.showMessageDialog(this,
+                        "Seleccione una fila para eliminar.",
+                        "Advertencia",
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            int confirmacion = JOptionPane.showConfirmDialog(this, 
-                    "¿Está seguro de eliminar el reporte seleccionado?", 
-                    "Confirmar Eliminación", 
+            int confirmacion = JOptionPane.showConfirmDialog(this,
+                    "¿Está seguro de eliminar el reporte seleccionado?",
+                    "Confirmar Eliminación",
                     JOptionPane.YES_NO_OPTION);
 
             if (confirmacion == JOptionPane.YES_OPTION) {
                 DefaultTableModel modelo = (DefaultTableModel) jTable.getModel();
                 modelo.removeRow(filaSeleccionada);
 
-                JOptionPane.showMessageDialog(this, 
-                        "Reporte eliminado exitosamente.", 
-                        "Eliminar", 
+                JOptionPane.showMessageDialog(this,
+                        "Reporte eliminado exitosamente.",
+                        "Eliminar",
                         JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                    "Error al eliminar: " + e.getMessage(), 
-                    "Error", 
+            JOptionPane.showMessageDialog(this,
+                    "Error al eliminar: " + e.getMessage(),
+                    "Error",
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -531,9 +541,9 @@ public class Reportes extends javax.swing.JPanel {
             int filaSeleccionada = jTable.getSelectedRow();
 
             if (filaSeleccionada == -1) {
-                JOptionPane.showMessageDialog(this, 
-                        "Seleccione una fila para generar la boleta.", 
-                        "Advertencia", 
+                JOptionPane.showMessageDialog(this,
+                        "Seleccione una fila para generar la boleta.",
+                        "Advertencia",
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
@@ -563,15 +573,15 @@ public class Reportes extends javax.swing.JPanel {
                     + "======================================\n"
                     + "Gracias por confiar en nuestro servicio.";
 
-            JOptionPane.showMessageDialog(this, 
-                    boleta, 
-                    "Boleta Generada", 
+            JOptionPane.showMessageDialog(this,
+                    boleta,
+                    "Boleta Generada",
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                    "Error al generar la boleta: " + e.getMessage(), 
-                    "Error", 
+            JOptionPane.showMessageDialog(this,
+                    "Error al generar la boleta: " + e.getMessage(),
+                    "Error",
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -580,7 +590,7 @@ public class Reportes extends javax.swing.JPanel {
     private void btnBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaActionPerformed
         // BOLETA                                          
         int filaSeleccionada = jTable.getSelectedRow();
-    
+
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this,
                     "Por favor, seleccione un registro en la tabla para generar la BOLETA.",
@@ -603,7 +613,7 @@ public class Reportes extends javax.swing.JPanel {
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
         // FACTURA
         int filaSeleccionada = jTable.getSelectedRow();
-    
+
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this,
                     "Por favor, seleccione un registro en la tabla para generar la FACTURA.",
@@ -626,7 +636,7 @@ public class Reportes extends javax.swing.JPanel {
     private void btnProformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProformaActionPerformed
         // PROFORMA
         int filaSeleccionada = jTable.getSelectedRow();
-    
+
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this,
                     "Por favor, seleccione un registro en la tabla para generar la PROFORMA.",
@@ -645,6 +655,10 @@ public class Reportes extends javax.swing.JPanel {
 
         generarDocumentoPDF("Proforma");
     }//GEN-LAST:event_btnProformaActionPerformed
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
