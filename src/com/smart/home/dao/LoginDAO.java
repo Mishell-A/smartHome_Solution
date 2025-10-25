@@ -4,6 +4,7 @@
  */
 package com.smart.home.dao;
 
+import com.smart.home.dao.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
-public class Login {
+public class LoginDAO {
 
     public void validarUsuario(JTextField usuario, JPasswordField contraseña) {
         String consulta = "SELECT * FROM Usuario WHERE nombre = ? AND contraseña = ?";
