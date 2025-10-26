@@ -423,6 +423,12 @@ public class Financiero extends javax.swing.JPanel {
             try {
                 java.util.Date date = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(fecha);
                 jFecha.setDate(date);
+                
+                // Mensaje de éxito después de cargar los datos
+                JOptionPane.showMessageDialog(this,
+                "Los datos se han cargado correctamente. Ahora puedes editarlos y hacer clic en Actualizar para guardar.",
+                "Datos Cargados",
+                JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
                 e.printStackTrace();
             }
