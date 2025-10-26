@@ -43,9 +43,9 @@ public class ProyectoDAO {
         return proyectos.removeIf(p -> p.getID() == id);
     }
 
-    public Proyecto buscarPorNombre(String nombre) {
+    public Proyecto buscarPorEstado(String estado) {
         for (Proyecto p : proyectos) {
-            if (p.getNombre().equalsIgnoreCase(nombre)) return p;
+            if (p.getEstado().equalsIgnoreCase(estado)) return p;
         }
         return null;
     }

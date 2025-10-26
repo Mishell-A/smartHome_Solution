@@ -115,7 +115,7 @@ public class Proyectos extends javax.swing.JPanel {
 
         jLabel6.setText("Nombre:");
 
-        jcmbEncargado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lista de Empledaos\t", "Pendiente" }));
+        jcmbEncargado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Carlos Díaz", "María Gómez", "Luis Fernández", "Juan Pérez", "Ana Martínez" }));
 
         jLabel7.setText("Encargado:");
 
@@ -261,7 +261,7 @@ public class Proyectos extends javax.swing.JPanel {
         lblF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblF.setText("Filtrar:");
 
-        jcmbQueryFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "fdggfd", "htgfhg" }));
+        jcmbQueryFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todo", "Activo", "Inactivo" }));
 
         jtableProyectos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,7 +272,7 @@ public class Proyectos extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Encargardo", "Estado", "Fecha Inicio", "Fecha Fin"
+                "ID", "Nombre", "Encargado", "Estado", "Fecha Inicio", "Fecha Fin"
             }
         ));
         jtableProyectos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -339,7 +339,8 @@ public class Proyectos extends javax.swing.JPanel {
                         .addGap(9, 9, 9)
                         .addComponent(jcmbQueryFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(13, 13, 13)
-                .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(spT, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -473,7 +474,7 @@ public class Proyectos extends javax.swing.JPanel {
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel> (modeloProyectos);
         jtableProyectos.setRowSorter(tr);
         
-        if(!parametroFiltro.equals("Todos")){
+        if(!parametroFiltro.equals("Todo")){
             //Si se selecciona un filtro diferente a Todos
             tr.setRowFilter(RowFilter.regexFilter(parametroFiltro));
         }else{
