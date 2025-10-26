@@ -150,7 +150,7 @@ public class Inicio extends javax.swing.JPanel {
 
         lblS.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblS.setForeground(new java.awt.Color(255, 255, 255));
-        lblS.setText("Productos con stcok bajo");
+        lblS.setText("Productos mas vendidos");
 
         btn3.setBackground(new java.awt.Color(0, 0, 0));
         btn3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -244,11 +244,11 @@ public class Inicio extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 146, Short.MAX_VALUE)
+            .addGap(0, 164, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout bgaLayout = new javax.swing.GroupLayout(bga);
@@ -260,15 +260,15 @@ public class Inicio extends javax.swing.JPanel {
                 .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(45, 45, 45))
             .addGroup(bgaLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addGap(116, 116, 116)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         bgaLayout.setVerticalGroup(
             bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,9 +281,9 @@ public class Inicio extends javax.swing.JPanel {
                 .addGroup(bgaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -316,7 +316,7 @@ public class Inicio extends javax.swing.JPanel {
          
          ChartPanel panel = new ChartPanel(grafico_circular);
          panel.setMouseWheelEnabled(true);
-         panel.setPreferredSize(new Dimension(250,130));
+         panel.setPreferredSize(new Dimension(471,164));
          
          jPanel1.removeAll();
          jPanel1.setLayout(new BorderLayout());
@@ -329,33 +329,33 @@ public class Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        String[][] productos = {
-        {"Plancha de drywall", "4"},
-        {"Tornillos punta fina", "3"},
-        {"Cinta de papel", "2"},
-        {"Masilla 25kg", "1"},
-        {"Perfil metálico", "5"}
-    };
-
-        String[] columnas = {"Producto", "Stock"};
-
-        
-        javax.swing.JTable tabla = new javax.swing.JTable(productos, columnas);
-        javax.swing.JScrollPane scroll = new javax.swing.JScrollPane(tabla);
-        scroll.setPreferredSize(new java.awt.Dimension(250, 120));
+        org.jfree.data.category.DefaultCategoryDataset datos = new org.jfree.data.category.DefaultCategoryDataset();
+        datos.setValue(150, "Materiales", "Planchas");
+        datos.setValue(300, "Materiales", "Tornillos");
+        datos.setValue(200, "Materiales", "Masilla");
+        datos.setValue(180, "Materiales", "Cinta");
+        datos.setValue(100, "Materiales", "Perfiles Metálicos");
 
     
-        jPanel1.removeAll();
+        org.jfree.chart.JFreeChart grafico_barras = org.jfree.chart.ChartFactory.createBarChart3D(
+        "MATERIALES MAS VENDIDOS",     // título del gráfico
+        "Material",                             // eje X
+        "Cantidad (unidades)",                  // eje Y
+        datos,                                  // datos
+        org.jfree.chart.plot.PlotOrientation.VERTICAL,
+        true,                                   // incluir leyenda
+        true,                                   // tooltips
+        false                                   // URLs
+    );
+
+    
+        org.jfree.chart.ChartPanel panel = new org.jfree.chart.ChartPanel(grafico_barras);
+        panel.setMouseWheelEnabled(true);
+        panel.setPreferredSize(new java.awt.Dimension(471,164));
+ 
+        jPanel1.removeAll(); // limpia el panel
         jPanel1.setLayout(new java.awt.BorderLayout());
-
-    
-        javax.swing.JLabel titulo = new javax.swing.JLabel("📦 Productos con Stock Bajo", javax.swing.SwingConstants.CENTER);
-        titulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
-
-        jPanel1.add(titulo, java.awt.BorderLayout.NORTH);
-        jPanel1.add(scroll, java.awt.BorderLayout.CENTER);
-
-    
+        jPanel1.add(panel, java.awt.BorderLayout.CENTER);
         jPanel1.validate();
         jPanel1.repaint();
     }//GEN-LAST:event_btn3ActionPerformed
