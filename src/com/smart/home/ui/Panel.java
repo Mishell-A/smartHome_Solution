@@ -13,9 +13,7 @@ import javax.swing.JPanel;
  */
 public class Panel extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Panel
-     */
+
     public Panel() {
         initComponents();
         initContent();
@@ -275,7 +273,8 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniActionPerformed
 
     private void btnProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProActionPerformed
-        ShowJPanel(new Proyectos());
+        ShowJPanel(new Proyect());
+        
     }//GEN-LAST:event_btnProActionPerformed
 
     private void brnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnInActionPerformed
