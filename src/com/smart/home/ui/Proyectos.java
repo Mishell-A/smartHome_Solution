@@ -14,6 +14,7 @@ import javax.swing.table.TableRowSorter;
 public class Proyectos extends javax.swing.JPanel {
     private ProyectoDAO dao = new ProyectoDAO ();
     private DefaultTableModel modeloProyectos;
+    private TableRowSorter<DefaultTableModel> sorter;
 
     public Proyectos() {
         initComponents();
@@ -31,6 +32,9 @@ public class Proyectos extends javax.swing.JPanel {
             }
         };
         jtableProyectos.setModel(modeloProyectos);
+        // Crear y asociar el sorter a la tabla
+        sorter = new TableRowSorter<>(modeloProyectos);
+        jtableProyectos.setRowSorter(sorter);
     }
     
     private void verDatos(String filtro) {
@@ -56,7 +60,6 @@ public class Proyectos extends javax.swing.JPanel {
 
         jtxtQueryBuscar = new javax.swing.JTextField();
         jbtnFiltrar = new javax.swing.JButton();
-        jbtnBuscar = new javax.swing.JButton();
         jp1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -82,6 +85,12 @@ public class Proyectos extends javax.swing.JPanel {
         jtableProyectos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        jtxtQueryBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtQueryBuscarKeyReleased(evt);
+            }
+        });
+
         jbtnFiltrar.setBackground(new java.awt.Color(0, 0, 0));
         jbtnFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbtnFiltrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,16 +98,6 @@ public class Proyectos extends javax.swing.JPanel {
         jbtnFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnFiltrarActionPerformed(evt);
-            }
-        });
-
-        jbtnBuscar.setBackground(new java.awt.Color(0, 0, 0));
-        jbtnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jbtnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnBuscar.setText("Ver");
-        jbtnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnBuscarActionPerformed(evt);
             }
         });
 
@@ -307,9 +306,7 @@ public class Proyectos extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(12, 12, 12)
-                        .addComponent(jtxtQueryBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtxtQueryBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -325,21 +322,18 @@ public class Proyectos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jbtnFiltrar)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jtxtQueryBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbtnBuscar))))
+                        .addComponent(lblF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jcmbQueryFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(13, 13, 13)
-                .addComponent(spT, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtQueryBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jcmbQueryFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbtnFiltrar)))))
+                .addGap(18, 18, 18)
+                .addComponent(spT, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -483,31 +477,6 @@ public class Proyectos extends javax.swing.JPanel {
         };
     }//GEN-LAST:event_jbtnFiltrarActionPerformed
 
-    private void jbtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBuscarActionPerformed
-//        String nombreBuscado = JOptionPane.showInputDialog("Ingrese el nombre del proyecto:");
-//        if (nombreBuscado == null || nombreBuscado.trim().isEmpty()) return;
-//
-//        boolean encontrado = false;
-//        for (Proyecto p : Lis) {
-//            if (p.getNombre().equalsIgnoreCase(nombreBuscado.trim())) {
-//                JOptionPane.showMessageDialog(null,
-//                        "Proyecto encontrado:\n" +
-//                                "ID: " + p.getID() + "\n" +
-//                                "Nombre: " + p.getNombre() + "\n" +
-//                                "Encargado: " + p.getEncargado() + "\n" +
-//                                "Estado: " + p.getEstado() + "\n" +
-//                                "Fecha Inicio: " + p.getFecha() + "\n" +
-//                                "Fecha Fin: " + p.getFin()
-//                );
-//                encontrado = true;
-//                break;
-//            }
-//        }
-//        if (!encontrado) {
-//            JOptionPane.showMessageDialog(null, "No se encontró ningún proyecto con ese nombre.");
-//        }
-    }//GEN-LAST:event_jbtnBuscarActionPerformed
-
     private void jtableProyectosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtableProyectosMouseClicked
         if (evt.getClickCount() == 2) {
 
@@ -545,6 +514,17 @@ public class Proyectos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jtableProyectosMouseClicked
 
+    private void jtxtQueryBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtQueryBuscarKeyReleased
+        buscar();
+    }//GEN-LAST:event_jtxtQueryBuscarKeyReleased
+    private  void buscar(){
+        try{
+          sorter.setRowFilter(RowFilter.regexFilter(jtxtQueryBuscar.getText()));
+        }catch(Exception e){
+            
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -555,7 +535,6 @@ public class Proyectos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JButton jbtnBuscar;
     private javax.swing.JButton jbtnEditar;
     private javax.swing.JButton jbtnEliminar;
     private javax.swing.JButton jbtnFiltrar;

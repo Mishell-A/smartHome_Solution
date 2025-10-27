@@ -203,6 +203,12 @@ public class Cliente extends javax.swing.JPanel {
         lblF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblF.setText("Filtrar:");
 
+        jtxtQueryBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtQueryBuscarKeyReleased(evt);
+            }
+        });
+
         jbtnFiltrar.setBackground(new java.awt.Color(0, 0, 0));
         jbtnFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbtnFiltrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -292,6 +298,11 @@ public class Cliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbtnGuardarActionPerformed
 
+    private void jtxtQueryBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtQueryBuscarKeyReleased
+        
+    }//GEN-LAST:event_jtxtQueryBuscarKeyReleased
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
