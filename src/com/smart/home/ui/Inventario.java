@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package com.smart.home.ui;
 
-/**
- *
- * @author USER
- */
+package com.smart.home.ui;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+//PDF
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+
+import java.io.FileOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Inventario extends javax.swing.JPanel {
 
     /**
@@ -160,14 +166,10 @@ public class Inventario extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp1Layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addGap(42, 42, 42)))
-                        .addGap(18, 18, 18)
+                        .addGap(125, 125, 125)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp1Layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabel8))
-                            .addGroup(jp1Layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jp1Layout.createSequentialGroup()
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2)
@@ -211,9 +213,9 @@ public class Inventario extends javax.swing.JPanel {
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

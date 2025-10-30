@@ -285,7 +285,7 @@ public class Cliente extends javax.swing.JPanel {
 
     private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
         try {
-            if (jtxtNombre.getText().trim().isEmpty() ||
+        if (jtxtNombre.getText().trim().isEmpty() ||
             jtxtDniRuc.getText().trim().isEmpty() ||
             jtxtCelular.getText().trim().isEmpty() ||
             jtxtCorreo.getText().trim().isEmpty()) {

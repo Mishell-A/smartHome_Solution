@@ -85,6 +85,11 @@ public class Proyectos extends javax.swing.JPanel {
         jtableProyectos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        jtxtQueryBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtQueryBuscarActionPerformed(evt);
+            }
+        });
         jtxtQueryBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtxtQueryBuscarKeyReleased(evt);
@@ -517,6 +522,10 @@ public class Proyectos extends javax.swing.JPanel {
     private void jtxtQueryBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtQueryBuscarKeyReleased
         buscar();
     }//GEN-LAST:event_jtxtQueryBuscarKeyReleased
+
+    private void jtxtQueryBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtQueryBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtQueryBuscarActionPerformed
     private  void buscar(){
         try{
           sorter.setRowFilter(RowFilter.regexFilter(jtxtQueryBuscar.getText()));
