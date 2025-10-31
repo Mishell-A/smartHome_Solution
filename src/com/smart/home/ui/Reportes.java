@@ -6,30 +6,35 @@ import javax.swing.table.DefaultTableModel;
 //PDF
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 
 import java.io.FileOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Reportes extends javax.swing.JPanel {
 
     public Reportes() {
         initComponents();
         DefaultTableModel modelo = new DefaultTableModel(
-          new Object[]{"Cliente", "DNI", "Proyecto", "Descripción", "Encargado", "Estado", "Fecha de Pago", "Método de Pago", "Monto"},0) 
-        
-        {
+            new Object[]{"Cliente", "DNI", "Proyecto", "Descripción", "Encargado", "Estado", "Fecha de Pago", "Método de Pago", "Monto"}, 
+            0
+        ) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // ❌ No se puede editar ninguna celda
+                return false;  // No hacer que ninguna celda sea editable
             }
         };
+        
+        // Establece el modelo a la tabla
         jTable.setModel(modelo);
     }
+    private int filaEditando = -1; // -1 significa que no estamos editando
 
     private void generarDocumentoPDF(String tipoDocumento) {
-        try {
+         try {
             int filaSeleccionada = jTable.getSelectedRow();
 
             if (filaSeleccionada == -1) {
@@ -117,7 +122,6 @@ public class Reportes extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtProyecto = new javax.swing.JTextField();
-        txtFechaPago = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtCliente = new javax.swing.JTextField();
         txtEncargado = new javax.swing.JTextField();
@@ -132,9 +136,10 @@ public class Reportes extends javax.swing.JPanel {
         txtDescripcion = new javax.swing.JTextField();
         btnGenerarBoleta = new javax.swing.JButton();
         txtMonto = new javax.swing.JTextField();
-        txtEstado = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtMetodoPago = new javax.swing.JTextField();
+        comboBoxEstado = new javax.swing.JComboBox<>();
+        JdateChooser = new com.toedter.calendar.JDateChooser();
+        comboBoxMetodoPago = new javax.swing.JComboBox<>();
         btnBoleta = new javax.swing.JButton();
         btnFactura = new javax.swing.JButton();
         btnProforma = new javax.swing.JButton();
@@ -161,7 +166,7 @@ public class Reportes extends javax.swing.JPanel {
         jp1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
-        jLabel2.setText("Boleta de pago por proyecto");
+        jLabel2.setText("Reportes por proyecto");
 
         jLabel3.setText("Cliente:");
 
@@ -217,7 +222,7 @@ public class Reportes extends javax.swing.JPanel {
 
         btnGenerarBoleta.setBackground(new java.awt.Color(204, 204, 204));
         btnGenerarBoleta.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        btnGenerarBoleta.setText("Generar Boleta PDF");
+        btnGenerarBoleta.setText("Generar Boleta");
         btnGenerarBoleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarBoletaActionPerformed(evt);
@@ -226,74 +231,71 @@ public class Reportes extends javax.swing.JPanel {
 
         jLabel11.setText("Metodo de Pago:");
 
+        comboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+
+        comboBoxMetodoPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Transferencia", "Efectivo", "Yape" }));
+
         javax.swing.GroupLayout jp1Layout = new javax.swing.GroupLayout(jp1);
         jp1.setLayout(jp1Layout);
         jp1Layout.setHorizontalGroup(
             jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jp1Layout.createSequentialGroup()
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jp1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jp1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                            .addComponent(txtMonto)
-                                            .addComponent(txtEstado)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(txtEncargado, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(6, 6, 6)
+                                .addComponent(txtEncargado))
                             .addGroup(jp1Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(btnGuardar)
-                                .addGap(29, 29, 29)
-                                .addComponent(btnEditar)))
-                        .addGap(8, 8, 8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCliente))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtProyecto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(36, 36, 36)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp1Layout.createSequentialGroup()
-                                .addComponent(btnEliminar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnGenerarBoleta))
-                            .addGroup(jp1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jp1Layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jp1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtDescripcion)
-                                            .addComponent(txtFechaPago)
-                                            .addComponent(txtMetodoPago, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))))))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDescripcion)
+                            .addComponent(txtDni)
+                            .addComponent(JdateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboBoxMetodoPago, 0, 180, Short.MAX_VALUE)))
+                    .addGroup(jp1Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(btnGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnGenerarBoleta)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jp1Layout.setVerticalGroup(
             jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -301,6 +303,15 @@ public class Reportes extends javax.swing.JPanel {
                         .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)))
                 .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(JdateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jp1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -317,27 +328,17 @@ public class Reportes extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(txtMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnGuardar)
-                            .addComponent(btnEditar)
-                            .addComponent(btnLimpiar)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnGenerarBoleta))
-                        .addContainerGap())
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(txtFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(comboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxMetodoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnEditar)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnGenerarBoleta))
+                .addGap(15, 15, 15))
         );
 
         btnBoleta.setBackground(new java.awt.Color(0, 153, 153));
@@ -374,32 +375,33 @@ public class Reportes extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(39, 39, 39)
+                        .addComponent(jp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
+                        .addGap(53, 53, 53)
+                        .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
                         .addComponent(btnBoleta)
                         .addGap(18, 18, 18)
                         .addComponent(btnFactura)
                         .addGap(18, 18, 18)
                         .addComponent(btnProforma)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBoleta)
                     .addComponent(btnFactura)
                     .addComponent(btnProforma))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(29, 29, 29)
                 .addComponent(spT, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -413,34 +415,53 @@ public class Reportes extends javax.swing.JPanel {
             String proyecto = txtProyecto.getText();
             String descripcion = txtDescripcion.getText();
             String encargado = txtEncargado.getText();
-            String estado = txtEstado.getText();
-            String fechaPago = txtFechaPago.getText();
-            String metodoPago = txtMetodoPago.getText();
+            String estado = comboBoxEstado.getSelectedItem().toString();
+            Date fecha = JdateChooser.getDate();
+            String fechaPago = (fecha != null) ? new SimpleDateFormat("dd/MM/yyyy").format(fecha) : "";
+            String metodoPago = comboBoxMetodoPago.getSelectedItem().toString();
             String monto = txtMonto.getText();
 
             if (cliente.isEmpty() || dni.isEmpty()) {
-                JOptionPane.showMessageDialog(this,
-                        "Por favor, complete al menos los campos de Cliente y DNI.",
-                        "Campos incompletos",
-                        JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                    "Por favor, complete al menos los campos de Cliente y DNI.", 
+                    "Campos incompletos", 
+                    JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            modelo.addRow(new Object[]{
-                cliente, dni, proyecto, descripcion, encargado, estado, fechaPago, metodoPago, monto
-            });
+            if (filaEditando == -1) {
+                modelo.addRow(new Object[]{
+                    cliente, dni, proyecto, descripcion, encargado, estado, fechaPago, metodoPago, monto
+                });
+                JOptionPane.showMessageDialog(this, 
+                        "Reporte guardado y agregado a la tabla exitosamente.", 
+                        "Guardar", 
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                modelo.setValueAt(cliente, filaEditando, 0);
+                modelo.setValueAt(dni, filaEditando, 1);
+                modelo.setValueAt(proyecto, filaEditando, 2);
+                modelo.setValueAt(descripcion, filaEditando, 3);
+                modelo.setValueAt(encargado, filaEditando, 4);
+                modelo.setValueAt(estado, filaEditando, 5);
+                modelo.setValueAt(fechaPago, filaEditando, 6);
+                modelo.setValueAt(metodoPago, filaEditando, 7);
+                modelo.setValueAt(monto, filaEditando, 8);
 
-            JOptionPane.showMessageDialog(this,
-                    "Reporte guardado y agregado a la tabla exitosamente.",
-                    "Guardar",
-                    JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Registro actualizado correctamente.", 
+                        "Actualizar", 
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                filaEditando = -1;
+            }
 
             btnLimpiarActionPerformed(evt);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Ocurrió un error al intentar guardar: " + e.getMessage(),
-                    "Error",
+            JOptionPane.showMessageDialog(this, 
+                    "Ocurrió un error al intentar guardar: " + e.getMessage(), 
+                    "Error", 
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -448,29 +469,31 @@ public class Reportes extends javax.swing.JPanel {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
         txtCliente.setText("");
         txtDescripcion.setText("");
         txtDni.setText("");
         txtEncargado.setText("");
-        txtEstado.setText("");
-        txtFechaPago.setText("");
-        txtMetodoPago.setText("");
         txtMonto.setText("");
-        txtProyecto.setText("");
+        txtProyecto.setText(""); 
+        comboBoxEstado.setSelectedIndex(0);
+        comboBoxMetodoPago.setSelectedIndex(0);
+        JdateChooser.setDate(null);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         try {
             int filaSeleccionada = jTable.getSelectedRow();
-
             if (filaSeleccionada == -1) {
-                JOptionPane.showMessageDialog(this,
-                        "Seleccione una fila para editar.",
-                        "Advertencia",
+                JOptionPane.showMessageDialog(this, 
+                        "Seleccione una fila para editar.", 
+                        "Advertencia", 
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
+
+            filaEditando = filaSeleccionada;
 
             DefaultTableModel modelo = (DefaultTableModel) jTable.getModel();
 
@@ -479,20 +502,29 @@ public class Reportes extends javax.swing.JPanel {
             txtProyecto.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
             txtDescripcion.setText(modelo.getValueAt(filaSeleccionada, 3).toString());
             txtEncargado.setText(modelo.getValueAt(filaSeleccionada, 4).toString());
-            txtEstado.setText(modelo.getValueAt(filaSeleccionada, 5).toString());
-            txtFechaPago.setText(modelo.getValueAt(filaSeleccionada, 6).toString());
-            txtMetodoPago.setText(modelo.getValueAt(filaSeleccionada, 7).toString());
+
+            comboBoxEstado.setSelectedItem(modelo.getValueAt(filaSeleccionada, 5).toString());
+
+            String fechaStr = modelo.getValueAt(filaSeleccionada, 6).toString();
+            if(!fechaStr.isEmpty()){
+                JdateChooser.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(fechaStr));
+            } else {
+                JdateChooser.setDate(null);
+            }
+
+            comboBoxMetodoPago.setSelectedItem(modelo.getValueAt(filaSeleccionada, 7).toString());
+
             txtMonto.setText(modelo.getValueAt(filaSeleccionada, 8).toString());
 
-            JOptionPane.showMessageDialog(this,
-                    "Datos cargados. Ahora puedes modificarlos y volver a presionar Guardar.",
-                    "Editar",
+            JOptionPane.showMessageDialog(this, 
+                    "Datos cargados. Ahora puedes modificarlos y volver a presionar Guardar.", 
+                    "Editar", 
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error al intentar editar: " + e.getMessage(),
-                    "Error",
+            JOptionPane.showMessageDialog(this, 
+                    "Error al intentar editar: " + e.getMessage(), 
+                    "Error", 
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -500,36 +532,37 @@ public class Reportes extends javax.swing.JPanel {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
         try {
             int filaSeleccionada = jTable.getSelectedRow();
 
             if (filaSeleccionada == -1) {
-                JOptionPane.showMessageDialog(this,
-                        "Seleccione una fila para eliminar.",
-                        "Advertencia",
+                JOptionPane.showMessageDialog(this, 
+                        "Seleccione una fila para eliminar.", 
+                        "Advertencia", 
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            int confirmacion = JOptionPane.showConfirmDialog(this,
-                    "¿Está seguro de eliminar el reporte seleccionado?",
-                    "Confirmar Eliminación",
+            int confirmacion = JOptionPane.showConfirmDialog(this, 
+                    "¿Está seguro de eliminar el reporte seleccionado?", 
+                    "Confirmar Eliminación", 
                     JOptionPane.YES_NO_OPTION);
 
             if (confirmacion == JOptionPane.YES_OPTION) {
                 DefaultTableModel modelo = (DefaultTableModel) jTable.getModel();
                 modelo.removeRow(filaSeleccionada);
 
-                JOptionPane.showMessageDialog(this,
-                        "Reporte eliminado exitosamente.",
-                        "Eliminar",
+                JOptionPane.showMessageDialog(this, 
+                        "Reporte eliminado exitosamente.", 
+                        "Eliminar", 
                         JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error al eliminar: " + e.getMessage(),
-                    "Error",
+            JOptionPane.showMessageDialog(this, 
+                    "Error al eliminar: " + e.getMessage(), 
+                    "Error", 
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -541,9 +574,9 @@ public class Reportes extends javax.swing.JPanel {
             int filaSeleccionada = jTable.getSelectedRow();
 
             if (filaSeleccionada == -1) {
-                JOptionPane.showMessageDialog(this,
-                        "Seleccione una fila para generar la boleta.",
-                        "Advertencia",
+                JOptionPane.showMessageDialog(this, 
+                        "Seleccione una fila para generar la boleta.", 
+                        "Advertencia", 
                         JOptionPane.WARNING_MESSAGE);
                 return;
             }
@@ -573,15 +606,15 @@ public class Reportes extends javax.swing.JPanel {
                     + "======================================\n"
                     + "Gracias por confiar en nuestro servicio.";
 
-            JOptionPane.showMessageDialog(this,
-                    boleta,
-                    "Boleta Generada",
+            JOptionPane.showMessageDialog(this, 
+                    boleta, 
+                    "Boleta Generada", 
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error al generar la boleta: " + e.getMessage(),
-                    "Error",
+            JOptionPane.showMessageDialog(this, 
+                    "Error al generar la boleta: " + e.getMessage(), 
+                    "Error", 
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
@@ -590,7 +623,7 @@ public class Reportes extends javax.swing.JPanel {
     private void btnBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletaActionPerformed
         // BOLETA                                          
         int filaSeleccionada = jTable.getSelectedRow();
-
+    
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this,
                     "Por favor, seleccione un registro en la tabla para generar la BOLETA.",
@@ -634,9 +667,9 @@ public class Reportes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFacturaActionPerformed
 
     private void btnProformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProformaActionPerformed
-        // PROFORMA
+       // PROFORMA
         int filaSeleccionada = jTable.getSelectedRow();
-
+    
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this,
                     "Por favor, seleccione un registro en la tabla para generar la PROFORMA.",
@@ -662,6 +695,7 @@ public class Reportes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser JdateChooser;
     private javax.swing.JButton btnBoleta;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
@@ -670,6 +704,8 @@ public class Reportes extends javax.swing.JPanel {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnProforma;
+    private javax.swing.JComboBox<String> comboBoxEstado;
+    private javax.swing.JComboBox<String> comboBoxMetodoPago;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -687,9 +723,6 @@ public class Reportes extends javax.swing.JPanel {
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtEncargado;
-    private javax.swing.JTextField txtEstado;
-    private javax.swing.JTextField txtFechaPago;
-    private javax.swing.JTextField txtMetodoPago;
     private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtProyecto;
     // End of variables declaration//GEN-END:variables

@@ -390,6 +390,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxtQueryBuscar">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxtQueryBuscarKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jcmbQueryFiltrar">
       <Properties>
