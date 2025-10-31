@@ -40,6 +40,7 @@ public class ModuloInicio extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        cbRol = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
@@ -80,14 +81,13 @@ public class ModuloInicio extends javax.swing.JFrame {
             }
         });
 
+        cbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRADOR", "EMPLEADO" }));
+        cbRol.setBorder(javax.swing.BorderFactory.createTitledBorder("SELECCIONE TIPO"));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(137, 137, 137))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -103,6 +103,15 @@ public class ModuloInicio extends javax.swing.JFrame {
                             .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                             .addComponent(txtUsuario))))
                 .addGap(34, 34, 34))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(137, 137, 137))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(cbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +128,9 @@ public class ModuloInicio extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbRol, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -182,23 +193,29 @@ public class ModuloInicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     String usuario = txtUsuario.getText();
     String contrasena = new String(txtContrasena.getPassword());
+    String rol = cbRol.getSelectedItem().toString(); // 👈 Captura el rol
 
-    
-    String userCorrecto = "admin";
-    String passCorrecto = "1234";
+    if (usuario.equals("admin") && contrasena.equals("1234") && rol.equals("ADMINISTRADOR")) {
+    JOptionPane.showMessageDialog(this, "Bienvenido Administrador");
+    Panel menu = new Panel();
+    menu.setVisible(true);
+    this.dispose();
 
-    if(usuario.equals(userCorrecto) && contrasena.equals(passCorrecto)){
-        JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso");
-        
-        
-         Panel menu = new Panel();
-        menu.setVisible(true);
-        this.dispose();
+    } 
+    else if (usuario.equals("empleado") && contrasena.equals("0000") && rol.equals("EMPLEADO")) {
+    JOptionPane.showMessageDialog(this, "Bienvenido Empleado");
+    Panel menu = new Panel();
+    menu.setVisible(true);
 
-        
-    } else {
-        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
-    }
+    // 👇 Llama al método para desactivar botones
+    menu.desactivarBotonesEmpleado();
+
+    this.dispose();
+
+    } 
+    else {
+    JOptionPane.showMessageDialog(this, "Usuario, contraseña o rol incorrectos");
+     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -225,8 +242,9 @@ public class ModuloInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ModuloInicio().setVisible(true));
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbRol;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
