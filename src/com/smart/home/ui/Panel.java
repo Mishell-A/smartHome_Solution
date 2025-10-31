@@ -14,13 +14,17 @@ public class Panel extends javax.swing.JFrame {
     public Panel() {
         initComponents();
         initContent();
+        
     }
     
     
     private void initContent(){
        ShowJPanel(new Inicio());
     }
-    
+    public void desactivarBotonesEmpleado() {
+    btnEmpleados.setEnabled(false);
+    btnAgregar.setEnabled(false);
+    }
     private void ShowJPanel (JPanel p){
        p.setSize(680,473);
        p.setLocation(0,0);
