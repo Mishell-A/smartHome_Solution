@@ -18,6 +18,7 @@ public class ModuloInicio extends javax.swing.JFrame {
      */
     public ModuloInicio() {
         initComponents();
+        abre github
     }
 
     /**
