@@ -18,6 +18,7 @@ public class Agregar extends javax.swing.JPanel {
 
     public Agregar() {
         initComponents();
+        
     }
     
     @SuppressWarnings("unchecked")
